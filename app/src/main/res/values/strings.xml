@@ -1,0 +1,19 @@
+<resources>
+    <string name="app_name">TopList</string>
+
+    <string name="dummy_button">Dummy Button</string>
+    <string name="dummy_content">DUMMY\nCONTENT</string>
+    <string name="demo">Demo</string>
+    <string name="home">home</string>
+    <string name="following">following</string>
+    <string name="tickets">tickets</string>
+    <string name="settings">settings</string>
+    <string name="title_home">Home</string>
+    <string name="trade">Trade</string>
+    <string name="title_equity">Equity</string>
+    <string name="feed">Feed</string>
+    <string name="profile_image">Profile image</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+</resources>
