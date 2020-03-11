@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.topList.theme.base.widget.TConstraintlayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/GBK09A">
+
+    <com.topList.theme.base.widget.TTextView
+        android:id="@+id/tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="测试 textView 日夜间模式"
+        android:textColor="@color/GBL01A"
+        android:textSize="14sp"
+        android:layout_marginTop="200dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+    <com.topList.theme.base.widget.TSwitch
+        android:id="@+id/switch1"
+        style="@style/TopList.Widget.Switch.Light"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="日夜间 "
+        android:textColor="@color/GBK02A"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv" />
+
+</com.topList.theme.base.widget.TConstraintlayout>
+

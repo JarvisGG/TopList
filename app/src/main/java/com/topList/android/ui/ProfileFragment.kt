@@ -6,15 +6,17 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.topList.android.R
-import com.topList.android.vm.FeedViewModel
+import com.topList.theme.ThemeManager
+import com.topList.theme.ThemeManager.DARK
+import com.topList.theme.ThemeManager.LIGHT
+import kotlinx.android.synthetic.main.fragment_profile.*
 
 /**
  * @author yyf
- * @since 08-09-2019
+ * @since 03-09-2020
  */
-class EquityFragment : Fragment() {
+class ProfileFragment : Fragment() {
 
-    private lateinit var vm: FeedViewModel
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -22,11 +24,19 @@ class EquityFragment : Fragment() {
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        return inflater.inflate(R.layout.fragment_equity, container, false)
+        return inflater.inflate(R.layout.fragment_profile, container, false)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        switch1.isChecked = ThemeManager.isDark()
+        switch1.setOnClickListener {
+            if (switch1.isChecked) {
+                ThemeManager.switchThemeTo(DARK)
+            } else {
+                ThemeManager.switchThemeTo(LIGHT)
+            }
+        }
     }
 
 }

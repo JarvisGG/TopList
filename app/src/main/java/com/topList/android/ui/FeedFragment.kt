@@ -15,7 +15,7 @@ import com.topList.android.model.FeedItem
 import com.topList.android.ui.FeedFragmentDirections
 import com.topList.android.utils.Resource
 import com.topList.android.vm.FeedViewModel
-import com.topList.android.vm.HostViewModel
+//import com.topList.android.vm.HostViewModel
 import kotlinx.android.extensions.LayoutContainer
 import kotlinx.android.synthetic.main.feed_item.*
 import kotlinx.android.synthetic.main.fragment_feed.*
@@ -27,7 +27,7 @@ import kotlinx.android.synthetic.main.fragment_feed.*
 class FeedFragment : Fragment() {
 
     private lateinit var feedVm: FeedViewModel
-    private lateinit var hostVm: HostViewModel
+//    private lateinit var hostVm: HostViewModel
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -67,10 +67,10 @@ class FeedFragment : Fragment() {
             }
         })
 
-        hostVm = ViewModelProviders.of(requireActivity()).get(HostViewModel::class.java)
-        hostVm.drawerSelectedTab.observe(viewLifecycleOwner, Observer {
-            feedVm.fetchFeedDataById(it.id)
-        })
+//        hostVm = ViewModelProviders.of(requireActivity()).get(HostViewModel::class.java)
+//        hostVm.drawerSelectedTab.observe(viewLifecycleOwner, Observer {
+//            feedVm.fetchFeedDataById(it.id)
+//        })
     }
 
     inner class InnerAdapter : RecyclerView.Adapter<InnerViewHolder>() {

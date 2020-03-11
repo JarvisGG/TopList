@@ -10,17 +10,23 @@
             app:destination="@id/feed" />
 
     <action
-            android:id="@+id/host_to_trade_graph"
-            app:destination="@id/trade" />
+            android:id="@+id/host_to_subscribe_graph"
+            app:destination="@id/subscribe" />
 
     <action
-            android:id="@+id/host_to_equity_graph"
-            app:destination="@id/equity" />
+        android:id="@+id/host_to_discover_graph"
+        app:destination="@id/discover" />
+
+    <action
+            android:id="@+id/host_to_profile_graph"
+            app:destination="@id/profile" />
 
     <include app:graph="@navigation/feed" />
 
-    <include app:graph="@navigation/trade" />
+    <include app:graph="@navigation/subscribe" />
 
-    <include app:graph="@navigation/equity" />
+    <include app:graph="@navigation/discover" />
+
+    <include app:graph="@navigation/profile" />
 
 </navigation>

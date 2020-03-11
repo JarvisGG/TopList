@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  ~ Copyright (c) 2015 Zhihu Inc.
+  ~
+  ~ Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file except
+  ~ in compliance with the License. You may obtain a copy of the License at
+  ~
+  ~ http://www.apache.org/licenses/LICENSE-2.0
+  ~
+  ~ Unless required by applicable law or agreed to in writing, software distributed under the License
+  ~ is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express
+  ~ or implied. See the License for the specific language governing permissions and limitations under
+  ~ the License.
+  -->
+<resources>
+
+    <declare-styleable name="ThemedView">
+        <attr name="android:background"/>
+        <attr name="android:foreground"/>
+        <attr name="android:colorForeground"/>
+        <attr name="android:textAppearance"/>
+        <attr name="android:textColor"/>
+        <attr name="android:textSize"/>
+        <attr name="android:checkMark"/>
+        <attr name="android:theme"/>
+        <attr name="android:divider"/>
+        <attr name="android:src"/>
+        <attr name="android:tint"/>
+        <attr name="buttonTint"/>
+        <attr name="tabIndicatorColor"/>
+        <attr name="tabTextColor"/>
+        <attr name="contentScrim"/>
+        <attr name="cardBackgroundColor"/>
+        <attr name="hintTextAppearance"/>
+        <attr name="subtitleTextAppearance"/>
+        <attr name="theme"/>
+        <attr name="tintColor" format="reference|color"/>
+        <attr name="titleTextAppearance"/>
+        <attr name="popupTheme"/>
+        <attr name="overlayImage"/>
+        <attr name="placeholderImage"/>
+        <attr name="bg_shape" format="integer">
+            <enum name="roundrect" value="0"/>
+            <enum name="oval" value="1"/>
+        </attr>
+        <attr name="bg_gradient" format="integer">
+            <enum name="none" value="0"/>
+            <enum name="linear" value="1"/>
+        </attr>
+        <attr name="bg_gradientOrientation" format="integer">
+            <enum name="top_bottom" value="0"/>
+            <enum name="bottom_top" value="1"/>
+            <enum name="left_right" value="2"/>
+            <enum name="right_left" value="3"/>
+        </attr>
+        <attr name="bg_startColor" format="color|dimension"/>
+        <attr name="bg_endColor" format="color|dimension"/>
+        <attr name="bg_cornerRadius" format="dimension"/>
+        <attr name="bg_fillColor" format="color|dimension"/>
+        <attr name="bg_strokeColor" format="color|dimension"/>
+        <attr name="bg_strokeWidth" format="dimension"/>
+    </declare-styleable>
+<!--    <declare-styleable name="BezelImageView">-->
+<!--        <attr name="maskDrawable" format="reference"/>-->
+<!--        <attr name="borderDrawable" format="reference"/>-->
+<!--        <attr name="desaturateOnPress" format="boolean"/>-->
+<!--    </declare-styleable>-->
+<!--    <declare-styleable name="ZHBottomSheetLayout">-->
+<!--        <attr name="android:maxWidth"/>-->
+<!--        <attr name="maxCollapsedHeight" format="dimension"/>-->
+<!--        <attr name="maxCollapsedHeightSmall" format="dimension"/>-->
+<!--    </declare-styleable>-->
+<!--    <declare-styleable name="ZHBottomSheetLayout_LayoutParams">-->
+<!--        <attr name="layout_alwaysShow" format="boolean"/>-->
+<!--        <attr name="layout_ignoreOffset" format="boolean"/>-->
+<!--    </declare-styleable>-->
+<!--    <declare-styleable name="Layout">-->
+<!--        <attr name="aspectRatio" format="float"/>-->
+<!--    </declare-styleable>-->
+<!--    <declare-styleable name="ZHFontTextView">-->
+<!--        <attr name="customFont" format="string"/>-->
+<!--    </declare-styleable>-->
+<!--    <declare-styleable name="ZHRecyclerView">-->
+<!--        <attr name="fadingEdge_top_enable" format="boolean"/>-->
+<!--        <attr name="fadingEdge_bottom_enable" format="boolean"/>-->
+<!--        <attr name="fadingEdge_left_enable" format="boolean"/>-->
+<!--        <attr name="fadingEdge_right_enable" format="boolean"/>-->
+<!--    </declare-styleable>-->
+<!--    <declare-styleable name="ZHDraweeView">-->
+<!--        <attr name="displayOption" format="integer">-->
+<!--            <enum name="defaultDisplay" value="0"/>-->
+<!--            <enum name="staticDisplay" value="1"/>-->
+<!--            <enum name="loopAnimation" value="2"/>-->
+<!--            <enum name="oneShotAnimation" value="3"/>-->
+<!--        </attr>-->
+<!--    </declare-styleable>-->
+</resources>

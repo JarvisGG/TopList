@@ -1,6 +1,7 @@
 package com.topList.android
 
 import android.app.Application
+import com.topList.theme.ThemeManager
 
 /**
  * @author yyf
@@ -8,4 +9,8 @@ import android.app.Application
  */
 class App : Application() {
 
+    override fun onCreate() {
+        super.onCreate()
+        ThemeManager.init(this)
+    }
 }

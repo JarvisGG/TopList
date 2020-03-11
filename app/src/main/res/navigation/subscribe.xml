@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:id="@+id/subscribe"
+        app:startDestination="@id/subscribe_host">
+
+    <fragment
+            android:id="@+id/subscribe_host"
+            android:name="com.topList.android.ui.SubscribeFragment"
+            android:label="Subscribe"
+            tools:layout="@layout/fragment_subscribe"/>
+
+</navigation>

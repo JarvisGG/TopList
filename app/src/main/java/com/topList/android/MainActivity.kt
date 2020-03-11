@@ -1,10 +1,9 @@
 package com.topList.android
 
 import android.os.Bundle
-import androidx.appcompat.app.AppCompatActivity
-import com.topList.android.R
+import com.topList.theme.base.ui.ThemeActivity
 
-class MainActivity : AppCompatActivity() {
+class MainActivity : ThemeActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

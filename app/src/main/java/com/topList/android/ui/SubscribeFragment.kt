@@ -9,9 +9,9 @@ import com.topList.android.R
 
 /**
  * @author yyf
- * @since 08-09-2019
+ * @since 03-09-2020
  */
-class TradeFragment : Fragment() {
+class SubscribeFragment : Fragment() {
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -20,7 +20,7 @@ class TradeFragment : Fragment() {
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        return inflater.inflate(R.layout.fragment_trade, container, false)
+        return inflater.inflate(R.layout.fragment_subscribe, container, false)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {

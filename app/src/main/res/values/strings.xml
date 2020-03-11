@@ -9,8 +9,9 @@
     <string name="tickets">tickets</string>
     <string name="settings">settings</string>
     <string name="title_home">Home</string>
-    <string name="trade">Trade</string>
-    <string name="title_equity">Equity</string>
+    <string name="subscribe">Subscribe</string>
+    <string name="profile">Profile</string>
+    <string name="discover">Discover</string>
     <string name="feed">Feed</string>
     <string name="profile_image">Profile image</string>
 

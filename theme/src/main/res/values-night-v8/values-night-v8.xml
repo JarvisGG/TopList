@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="navigation_bar_color">#000000</color>
+    <color name="navigation_bar_color_pure">@android:color/black</color>
+
+    <color name="BG03">@color/BK01</color>
+    <color name="BG04">@color/BK01</color>
+    <color name="BookCoverBg">@color/BK04</color>
+    <color name="DarkBG">@color/BK01</color>
+    <color name="GBK02">#999999</color>
+
+    <color name="GBK02A">@color/BK06</color>
+    <color name="GBK02B">@color/BK01</color>
+    <color name="GBK03A">@color/BK05</color>
+    <color name="GBK03B">@color/BK02</color>
+    <color name="GBK03C">@color/BK03</color>
+    <color name="GBK04A">@color/BK06</color>
+    <color name="GBK04B">@color/BK04</color>
+    <color name="GBK05A">@color/BK05</color>
+    <color name="GBK06A">@color/BK04</color>
+    <color name="GBK06B">@color/BK04</color>
+    <color name="GBK07A">@color/BK03</color>
+    <color name="GBK07B">@color/BK05</color>
+    <color name="GBK08A">@color/BK11</color>
+    <color name="GBK08B">@color/BK03</color>
+    <color name="GBK09A">@color/BK03</color>
+    <color name="GBK09B">@color/BK11</color>
+    <color name="GBK09C">@color/BK01</color>
+    <color name="GBK10A">@color/BK11</color>
+    <color name="GBK10B">@color/BK10</color>
+    <color name="GBK10C">@color/BK01</color>
+    <color name="GBK12A">@color/BK11</color>
+    <color name="GBK99A">@color/BK02</color>
+    <color name="GBK99B">@color/BK09</color>
+    <color name="GBK99C">@color/BK11</color>
+    <color name="GBL01A">@color/BL02</color>
+    <color name="GBL03A">@color/BL03</color>
+    <color name="GBL05A">@color/BL06</color>
+    <color name="GBL07A">@color/BL07</color>
+    <color name="GBL08A">@color/BL09</color>
+    <color name="GBL10A">@color/BK11</color>
+    <color name="GEB02A">@color/YL03</color>
+    <color name="GGN01A">@color/GN01</color>
+    <color name="GRD01A">@color/RD02</color>
+    <color name="GRD03A">@color/RD04</color>
+    <color name="GRD05A">@color/RD06</color>
+    <color name="GRD07A">@color/RD07</color>
+    <color name="GYL01A">@color/YL01</color>
+    <color name="GYL02A">@color/YL03</color>
+    <color name="GYL04A">@color/YL05</color>
+    <color name="GYL06A">@color/YL07</color>
+    <color name="GYL08A">@color/YL09</color>
+    <color name="GYL10A">@color/YL11</color>
+    <color name="GYL12A">@color/YL13</color>
+    <color name="ReaderLinkGreen">@color/EB06</color>
+    <color name="ReaderLinkYellow">@color/EB01</color>
+    <color name="ReaderLittleHeaderGreen">@color/EB07</color>
+    <color name="ReaderLittleHeaderYellow">@color/EB02</color>
+    <color name="YellowBG">@color/YL02</color>
+    <color name="YellowSelect">@color/YL02</color>
+
+</resources>
