@@ -12,6 +12,7 @@ buildscript {
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
         classpath "org.jetbrains.kotlin:kotlin-serialization:1.3.70"
         classpath "android.arch.navigation:navigation-safe-args-gradle-plugin:1.0.0"
+        classpath 'com.jakewharton:butterknife-gradle-plugin:10.2.1'
     }
 }
 

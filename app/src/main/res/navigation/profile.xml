@@ -8,7 +8,7 @@
 
     <fragment
             android:id="@+id/profile_host"
-            android:name="com.topList.android.ui.ProfileFragment"
+            android:name="com.topList.android.ui.profile.ProfileFragment"
             android:label="Profile"
             tools:layout="@layout/fragment_profile"/>
 

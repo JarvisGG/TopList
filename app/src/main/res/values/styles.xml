@@ -11,4 +11,24 @@
         <item name="android:textSize">18sp</item>
     </style>
 
+    <style name="RecyclerViewItem">
+        <item name="android:background">@color/GBK99</item>
+        <item name="android:clickable">true</item>
+        <item name="android:foreground">?selectableItemBackground</item>
+    </style>
+
+    <style name="RecyclerViewItemTitle">
+        <item name="android:textColor">@color/GBK02</item>
+        <item name="android:textSize">16sp</item>
+    </style>
+
+    <style name="RecyclerViewLabel">
+        <item name="android:clickable">false</item>
+    </style>
+
+    <style name="RecyclerViewLabelTitle">
+        <item name="android:textColor">@color/GBK02</item>
+        <item name="android:textSize">14sp</item>
+    </style>
+
 </resources>

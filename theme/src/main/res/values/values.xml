@@ -41,6 +41,7 @@
     <color name="EB09">#98A89A</color>
     <color name="EB10">#0B2B0F</color>
     <color name="GBK02">#1A1A1A</color>
+    <color name="GBK99">#FFFFFF</color>
 
     <color name="GBK02A">@color/BK02</color>
     <color name="GBK02B">@color/BK02</color>

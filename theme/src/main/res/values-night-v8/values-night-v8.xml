@@ -8,6 +8,8 @@
     <color name="BookCoverBg">@color/BK04</color>
     <color name="DarkBG">@color/BK01</color>
     <color name="GBK02">#999999</color>
+    <color name="GBK99">#1A1A1A</color>
+
 
     <color name="GBK02A">@color/BK06</color>
     <color name="GBK02B">@color/BK01</color>

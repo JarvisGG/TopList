@@ -6,6 +6,7 @@ apply plugin: 'kotlin-android-extensions'
 apply plugin: "kotlinx-serialization"
 apply plugin: "kotlin-kapt"
 apply plugin: "androidx.navigation.safeargs"
+apply plugin: 'com.jakewharton.butterknife'
 
 androidExtensions {
     experimental = true
@@ -22,6 +23,12 @@ android {
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+
+//        javaCompileOptions {
+//            annotationProcessorOptions {
+//                arguments = [moduleNameOfSugarAdapter: 'app']
+//            }
+//        }
     }
 
     compileOptions {
@@ -88,6 +95,9 @@ dependencies {
 
     // Utils
     implementation 'com.helpchoice.kotlin:koton:1.0.1'
+
+    implementation 'com.zhihu.android:sugaradapter:1.8.16'
+    kapt 'com.zhihu.android:sugaradapter-processor:1.8.16'
 }
 
 configurations.all {

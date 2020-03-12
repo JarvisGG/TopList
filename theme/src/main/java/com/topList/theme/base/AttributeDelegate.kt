@@ -56,7 +56,7 @@ open class AttributeDelegate(
         styleId = attrs.styleAttribute
         if (styleId > 0) {
             val typedArray: TypedArray = view.context.obtainStyledAttributes(styleId, styleable)
-            for (index in this.styleable.indices) {
+            for (index in styleable.indices) {
                 val resourceId = typedArray.getResourceId(index, NO_VALUE)
                 if (resourceId > 0) {
                     setStyleResId(index, resourceId)
@@ -145,16 +145,9 @@ open class AttributeDelegate(
         if (resId > 0) {
             return resId
         }
-//        val attrId = getAttrResId(index)
-//        if (attrId > 0) {
-//            val array = view.context.obtainStyledAttributes(intArrayOf(attrId))
-//            val attrResId = array.getResourceId(0, defValue)
-//            array.recycle()
-//            return attrResId
-//        }
         val styleResId = getStyleResId(index)
         if (styleResId > 0) {
-            return  styleResId
+            return styleResId
         }
         return defValue
     }
