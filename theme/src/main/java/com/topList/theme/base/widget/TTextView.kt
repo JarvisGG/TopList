@@ -39,7 +39,6 @@ class TTextView : AppCompatTextView, IDayNightView {
             return
         }
         delegate.save(attrs, defStyleAttr = styles)
-        applyDrawableTintColorResource()
         init()
     }
 
@@ -50,6 +49,12 @@ class TTextView : AppCompatTextView, IDayNightView {
             this.breakStrategy = Layout.BREAK_STRATEGY_HIGH_QUALITY
             this.hyphenationFrequency = Layout.HYPHENATION_FREQUENCY_FULL
         }
+    }
+
+    override fun onAttachedToWindow() {
+        super.onAttachedToWindow()
+        applyDrawableTintColorResource()
+
     }
 
     override fun setBackgroundResource(resid: Int) {
@@ -92,7 +97,7 @@ class TTextView : AppCompatTextView, IDayNightView {
     }
 
     private fun applyDrawableTintColorResource() {
-        try {
+        if (isAttachedToWindow) {
             val colorRes: ResData<ColorStateList?> = delegate.getColorStateList(R.styleable.ThemedView_tintColor)
             if (colorRes.found) {
                 val color: Int = colorRes.data!!.getColorForState(drawableState, 0)
@@ -103,10 +108,7 @@ class TTextView : AppCompatTextView, IDayNightView {
                     drawable?.mutate()?.setColorFilter(color, PorterDuff.Mode.SRC_IN)
                 }
             }
-        } catch (e: Exception) {
-            e.printStackTrace()
         }
-
     }
 
     override fun resetStyle() {

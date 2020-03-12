@@ -130,17 +130,17 @@
     </style>
 
     <style name="TopList.Widget.TextView" parent="android:Widget.DeviceDefault.TextView">
-        <item name="android:textColorLink">@color/GBL01A</item>
+        <item name="android:textColorLink">@color/GBK02A</item>
     </style>
 
     <style name="TopList.Widget.Button" parent="Widget.AppCompat.Button">
-        <item name="colorAccent">@color/GBL01A</item>
+        <item name="colorAccent">@color/GBK02A</item>
     </style>
 
     <style name="TopList.Theme.AppTheme.Light" parent="TopList.Theme.AppBaseTheme.Light">
-        <item name="colorPrimary">@color/GBL01A</item>
+        <item name="colorPrimary">@color/GBK02A</item>
         <item name="colorPrimaryDark">@color/GBK09A</item>
-        <item name="colorAccent">@color/GBL01A</item>
+        <item name="colorAccent">@color/GBK02A</item>
         <item name="android:windowBackground">@color/GBK09A</item>
     </style>
 

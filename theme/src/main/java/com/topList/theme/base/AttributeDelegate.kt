@@ -190,6 +190,7 @@ open class AttributeDelegate(
         }
     }
 
+
     open fun getColorStateList(index: Int, fallback: ColorStateList? = null): ResData<ColorStateList?> {
         val resId = getResId(index)
         return if (resId > 0) {
@@ -199,7 +200,16 @@ open class AttributeDelegate(
         }
     }
 
-    open fun getCompatTint(): ResData<ColorStateList?>? {
+    open fun getItemColorStateList(index: Int, fallback: ColorStateList? = null): ResData<ColorStateList?> {
+        val resId = getResId(index)
+        return if (resId > 0) {
+            ResData(ContextCompat.getColorStateList(view.context, resId), true)
+        } else {
+            ResData(fallback, false)
+        }
+    }
+
+    open fun getCompatTint(): ResData<ColorStateList?> {
         var colorRes = getColorStateList(R.styleable.ThemedView_tintColor)
         if (!colorRes.found) {
             colorRes = getColorStateList(R.styleable.ThemedView_android_tint)

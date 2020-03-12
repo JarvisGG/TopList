@@ -13,10 +13,7 @@ import com.topList.android.R
 import com.topList.android.model.FeedTab
 import com.topList.android.utils.Resource
 //import com.topList.android.vm.HostViewModel
-import kotlinx.android.synthetic.main.bottom_nav_layout.*
-import kotlinx.android.synthetic.main.drawer_layout.*
 import kotlinx.android.synthetic.main.fragment_host.*
-import kotlinx.android.synthetic.main.toolbar_layout.*
 
 /**
  * @author yyf

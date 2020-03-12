@@ -67,15 +67,16 @@ open class ThemeActivity : AppCompatActivity(), ThemeSwitchable {
         super.onDestroy()
     }
 
-    protected open fun onPrepareThemeChanged(toMode: Int) {}
-
-    protected open fun onPostThemeChanged(toMode: Int) {
-        updateSystemUiColor()
+    protected open fun onPrepareThemeChanged(toMode: Int, anim: Boolean = false) {
+        updateSystemUiColor(anim)
     }
 
-    protected open fun updateSystemUiColor() {
+    protected open fun onPostThemeChanged(toMode: Int) {
+    }
+
+    protected open fun updateSystemUiColor(anim: Boolean) {
         StatusBarUtil.setStatusBarLightMode(this)
-        NavigationBarUtil.setDefaultNavigationBarColor(this)
+        NavigationBarUtil.setDefaultNavigationBarColor(this, anim)
     }
 
     @AppCompatDelegate.NightMode
@@ -117,8 +118,8 @@ open class ThemeActivity : AppCompatActivity(), ThemeSwitchable {
                 ViewGroup.LayoutParams.MATCH_PARENT
             )
         )
-        onPrepareThemeChanged(toMode)
         switchThemeInternal(toMode)
+        onPrepareThemeChanged(toMode, anim = true)
         maskView.animate().alpha(0f).setDuration(300)
             .setListener(object : AnimationListener() {
                 override fun onAnimationEnd(animation: Animator) {
@@ -129,8 +130,8 @@ open class ThemeActivity : AppCompatActivity(), ThemeSwitchable {
     }
 
     private fun switchWithoutAnimation(toMode: Int) {
-        onPrepareThemeChanged(toMode)
         switchThemeInternal(toMode)
+        onPrepareThemeChanged(toMode, anim = false)
         onPostThemeChanged(toMode)
     }
 

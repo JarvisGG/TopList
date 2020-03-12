@@ -59,7 +59,7 @@ object ThemedInflater {
                                 attrs: AttributeSet
         ) : View? {
             val view: View? = when (name) {
-                "BottomNavigationView" -> TBottomNavigationView(context, attrs)
+                "com.google.android.material.bottomnavigation.BottomNavigationView" -> TBottomNavigationView(context, attrs)
                 "Button" -> TButton(context, attrs)
                 "android.support.v7.widget.CardView",
                 "androidx.cardview.widget.CardView" -> TCardView(context, attrs)
@@ -75,6 +75,8 @@ object ThemedInflater {
                 "View" -> TView(context, attrs)
                 "android.support.v4.view.ViewPager",
                 "androidx.viewpager.widget.ViewPager" -> TViewPager(context, attrs)
+                "androidx.appcompat.widget.AppCompatImageView",
+                "ImageView" -> TImageView(context, attrs)
                 else -> null
             }
 

@@ -26,6 +26,7 @@
         <attr name="android:divider"/>
         <attr name="android:src"/>
         <attr name="android:tint"/>
+        <attr name="menu"/>
         <attr name="buttonTint"/>
         <attr name="tabIndicatorColor"/>
         <attr name="tabTextColor"/>
@@ -35,6 +36,9 @@
         <attr name="subtitleTextAppearance"/>
         <attr name="theme"/>
         <attr name="tintColor" format="reference|color"/>
+        <attr name="itemIconTint"/>
+        <attr name="itemBackground"/>
+        <attr name="itemTextColor"/>
         <attr name="titleTextAppearance"/>
         <attr name="popupTheme"/>
         <attr name="overlayImage"/>
