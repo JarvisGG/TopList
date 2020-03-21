@@ -1,7 +1,6 @@
 package com.topList.android.base
 
-import android.app.Application
-import androidx.lifecycle.AndroidViewModel
+import androidx.lifecycle.ViewModel
 import com.uber.autodispose.*
 import com.uber.autodispose.lifecycle.CorrespondingEventsFunction
 import com.uber.autodispose.lifecycle.LifecycleEndedException
@@ -15,7 +14,7 @@ import io.reactivex.subjects.BehaviorSubject
  * @author yyf
  * @since 08-12-2019
  */
-open class BaseViewModel(application: Application) : AndroidViewModel(application),
+open class BaseViewModel : ViewModel(),
     LifecycleScopeProvider<BaseViewModel.ViewModelEvent> {
 
     private val lifecycleEvents = BehaviorSubject.createDefault(ViewModelEvent.CREATED)

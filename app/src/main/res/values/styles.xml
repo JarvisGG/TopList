@@ -12,7 +12,13 @@
     </style>
 
     <style name="RecyclerViewItem">
+        <item name="android:clickable">true</item>
+        <item name="android:foreground">?selectableItemBackground</item>
         <item name="android:background">@color/GBK99</item>
+
+    </style>
+
+    <style name="ViewClick">
         <item name="android:clickable">true</item>
         <item name="android:foreground">?selectableItemBackground</item>
     </style>

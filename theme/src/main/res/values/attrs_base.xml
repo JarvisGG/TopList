@@ -16,6 +16,7 @@
 
     <declare-styleable name="ThemedView">
         <attr name="android:background"/>
+        <attr name="android:id"/>
         <attr name="android:foreground"/>
         <attr name="android:colorForeground"/>
         <attr name="android:textAppearance"/>

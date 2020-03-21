@@ -1,0 +1,3 @@
+[submodule "inboxrecyclerview"]
+	path = inboxrecyclerview
+	url = git@github.com:JarvisGG/InboxRecyclerView.git

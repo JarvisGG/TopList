@@ -1,4 +1,4 @@
-package com.topList.android.model
+package com.topList.android.api.model
 
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
@@ -11,5 +11,6 @@ import kotlinx.serialization.Serializable
 data class State<T> (
     @SerialName("Code") val code: Int,
     @SerialName("Message") val message: String,
-    @SerialName("Data") val data: T
+    @SerialName("Data") val data: T,
+    @SerialName("Page") val page: Int
 )

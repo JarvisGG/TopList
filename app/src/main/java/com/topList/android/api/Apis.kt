@@ -1,6 +1,7 @@
 package com.topList.android.api
 
 import com.jakewharton.retrofit2.converter.kotlinx.serialization.asConverterFactory
+import com.topList.android.api.service.FeedService
 import kotlinx.serialization.StringFormat
 import kotlinx.serialization.json.Json
 import kotlinx.serialization.json.JsonConfiguration
@@ -26,5 +27,6 @@ internal object Apis {
     /**
      * 所有 Http 接口
      */
-    val feed: FeedService = retrofit.create(FeedService::class.java)
+    val feed: FeedService = retrofit.create(
+        FeedService::class.java)
 }

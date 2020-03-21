@@ -9,6 +9,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.topList.android.R
 import com.topList.android.ui.profile.ProfileItem.*
+import com.topList.android.ui.profile.decor.AccountViewDecor
 import com.topList.android.ui.profile.holder.ItemData
 import com.topList.android.ui.profile.holder.ItemHolder
 import com.topList.android.ui.profile.holder.LabelData
@@ -46,6 +47,8 @@ class ProfileFragment : Fragment() {
         LinearLayoutManager(requireContext(), RecyclerView.VERTICAL, false)
     }
 
+    private lateinit var accountDecor: AccountViewDecor
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
     }
@@ -56,6 +59,13 @@ class ProfileFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        initView()
+    }
+
+    private fun initView() {
+
+        accountDecor = AccountViewDecor(av_header)
+
         rv_profile.run {
             adapter = this@ProfileFragment.adapter
             layoutManager = this@ProfileFragment.layoutManager

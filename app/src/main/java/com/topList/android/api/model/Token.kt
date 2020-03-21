@@ -1,4 +1,4 @@
-package com.topList.android.model
+package com.topList.android.api.model
 
 import android.os.Parcelable
 import kotlinx.android.parcel.Parcelize
@@ -7,11 +7,11 @@ import kotlinx.serialization.Serializable
 
 /**
  * @author yyf
- * @since 08-14-2019
+ * @since 03-21-2020
  */
+
 @Parcelize
 @Serializable
-data class FeedItem (
-    @SerialName("title") val title: String,
-    @SerialName("url") val url: String
-): Parcelable
+data class Token(
+    @SerialName("token") val token: String
+) : Parcelable

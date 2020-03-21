@@ -12,7 +12,7 @@ import com.topList.theme.base.iface.IDayNightView
  * @author yyf
  * @since 03-11-2020
  */
-class TFrameLayout : FrameLayout, IDayNightView {
+open class TFrameLayout : FrameLayout, IDayNightView {
     private val delegate: AttributeDelegate by lazy {
         AttributeDelegate(this)
     }
