@@ -98,6 +98,9 @@ dependencies {
 
     implementation 'com.zhihu.android:sugaradapter:1.8.16'
     kapt 'com.zhihu.android:sugaradapter-processor:1.8.16'
+
+    implementation project(path: ":inboxrecyclerview")
+
 }
 
 configurations.all {

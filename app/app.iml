@@ -262,5 +262,6 @@
     <orderEntry type="library" name="Gradle: com.facebook.fresco:nativeimagetranscoder:2.1.0@aar" level="project" />
     <orderEntry type="library" name="Gradle: io.reactivex.rxjava2:rxandroid:2.1.1@aar" level="project" />
     <orderEntry type="module" module-name="theme" />
+    <orderEntry type="module" module-name="inboxrecyclerview" />
   </component>
 </module>
