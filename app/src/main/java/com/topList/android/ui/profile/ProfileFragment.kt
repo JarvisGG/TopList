@@ -64,7 +64,7 @@ class ProfileFragment : Fragment() {
 
     private fun initView() {
 
-        accountDecor = AccountViewDecor(av_header)
+//        accountDecor = AccountViewDecor(av_header)
 
         rv_profile.run {
             adapter = this@ProfileFragment.adapter
