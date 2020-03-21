@@ -27,6 +27,5 @@ internal object Apis {
     /**
      * 所有 Http 接口
      */
-    val feed: FeedService = retrofit.create(
-        FeedService::class.java)
+    val feed: FeedService = retrofit.create(FeedService::class.java)
 }

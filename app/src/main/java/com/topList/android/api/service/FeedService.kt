@@ -31,10 +31,10 @@ interface FeedService {
 
 
     @GET("GetRandomInfo")
-    suspend fun getFeedList(
-        @Query("time") time: String,
-        @Query("is_follow") isFollow: String
-    ): Response<State<State<FeedItem>>>
+    suspend fun loadFeedList(
+        @Query("time") page: String, // time 就是 page,从第 0 页开始计数
+        @Query("is_follow") isFollow: String // 是否只获取订阅最新1是0否
+    ): Response<State<FeedItem>>
 
 
 }

@@ -11,6 +11,6 @@ import kotlinx.serialization.Serializable
 data class State<T> (
     @SerialName("Code") val code: Int,
     @SerialName("Message") val message: String,
-    @SerialName("Data") val data: T,
-    @SerialName("Page") val page: Int
+    @SerialName("Data") val data: ArrayList<T>,
+    @SerialName("Page") val page: Int = -1
 )
