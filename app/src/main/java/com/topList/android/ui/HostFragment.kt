@@ -10,7 +10,6 @@ import androidx.navigation.Navigator
 import androidx.navigation.fragment.*
 import androidx.navigation.ui.NavigationUI
 import com.topList.android.R
-import com.topList.android.model.FeedTab
 import com.topList.android.utils.Resource
 //import com.topList.android.vm.HostViewModel
 import kotlinx.android.synthetic.main.fragment_host.*

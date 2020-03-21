@@ -32,68 +32,6 @@ class DetailFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         initWebSettings()
-        "asd"[1]
-
-        val doc = kotON( {
-            "string" to "string value"
-            "integer" to 42
-            "array"[
-                    { "stringElement" to "value of an element" },
-                    { "intKey" to 42; "floatKey" to 3.14 },
-                    {
-                        "boolTrue" to true
-                        "booleFalse" to false
-                    }
-            ]
-            "float" to 3.14
-            "boolean true" to true
-            "subStruct" {
-                "substring" to "string value"
-                "subinteger" to 42
-                "subfloat" to 3.14
-                "subarray"[
-                        { "stringElement" to "value of an element" },
-                        { "intKey" to 42; "floatKey" to 3.14 },
-                        {
-                            "boolTrue" to true
-                            "booleFalse" to false
-                        }
-                ]
-                "subboolean true" to true
-                "subboolean false" to false
-            }
-            "boolean false" to false
-        }, {
-            "string" to "string value"
-            "integer" to 42
-            "array"[
-                    { "stringElement" to "value of an element" },
-                    { "intKey" to 42; "floatKey" to 3.14 },
-                    {
-                        "boolTrue" to true
-                        "booleFalse" to false
-                    }
-            ]
-            "float" to 3.14
-            "boolean true" to true
-            "subStruct" {
-                "substring" to "string value"
-                "subinteger" to 42
-                "subfloat" to 3.14
-                "subarray"[
-                        { "stringElement" to "value of an element" },
-                        { "intKey" to 42; "floatKey" to 3.14 },
-                        {
-                            "boolTrue" to true
-                            "booleFalse" to false
-                        }
-                ]
-                "subboolean true" to true
-                "subboolean false" to false
-            }
-            "boolean false" to false
-        }).toJson()
-
         webview.loadUrl(args.feedItem.url)
     }
 
