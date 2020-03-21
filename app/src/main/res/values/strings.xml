@@ -17,4 +17,14 @@
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+
+
+    <string name="time_just_now">刚刚</string>
+    <string name="time_relative_day">%1$d 天前</string>
+    <string name="time_relative_hour">%1$d 小时前</string>
+    <string name="time_relative_minute">%1$d 分钟前</string>
+    <string name="time_relative_month">%1$d 个月前</string>
+    <string name="time_relative_year">%1$d 年前</string>
+
+    <string name="feed_item_byline">%1$s %2$s</string>
 </resources>
