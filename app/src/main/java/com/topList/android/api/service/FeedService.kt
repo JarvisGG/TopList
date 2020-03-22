@@ -35,7 +35,7 @@ interface FeedService {
     suspend fun loadFeedList(
         @Query("time") page: String, // time 就是 page,从第 0 页开始计数
         @Query("is_follow") isFollow: String // 是否只获取订阅最新1是0否
-    ): Response<State<FeedItem>>
+    ): Response<State<List<FeedItem>>>
 
     @GET("GetSiteType")
     suspend fun getSubscribeList(): Response<State<State<List<SubscribeItem>>>>
