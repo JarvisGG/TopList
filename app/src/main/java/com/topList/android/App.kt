@@ -5,6 +5,8 @@ import com.facebook.drawee.backends.pipeline.Fresco
 import com.topList.android.utils.RxBus
 import com.topList.theme.ThemeManager
 import leakcanary.LeakCanary
+import timber.log.Timber
+import timber.log.Timber.DebugTree
 
 /**
  * @author yyf
@@ -18,5 +20,8 @@ class App : Application() {
             RxBus.instance.post(it)
         }
         Fresco.initialize(this)
+        if (BuildConfig.DEBUG) {
+            Timber.plant(DebugTree())
+        }
     }
 }
