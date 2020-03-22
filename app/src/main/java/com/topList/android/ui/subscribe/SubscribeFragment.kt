@@ -1,11 +1,13 @@
-package com.topList.android.ui
+package com.topList.android.ui.subscribe
 
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.activityViewModels
 import com.topList.android.R
+import kotlinx.android.synthetic.main.view_toolbar.*
 
 /**
  * @author yyf
@@ -13,6 +15,7 @@ import com.topList.android.R
  */
 class SubscribeFragment : Fragment() {
 
+    private lateinit var vm: SubscribeViewModel
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -25,6 +28,16 @@ class SubscribeFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        initView()
+        setUpVM()
+    }
+
+    private fun setUpVM() {
+        vm = activityViewModels<SubscribeViewModel>().value
+    }
+
+    private fun initView() {
+        tv_title.text = "mo.fish"
     }
 
 }
