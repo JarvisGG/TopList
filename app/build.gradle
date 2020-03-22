@@ -99,7 +99,8 @@ dependencies {
     // Utils
     implementation 'com.helpchoice.kotlin:koton:1.0.1'
 
-    implementation 'com.zhihu.android:sugaradapter:1.8.16'
+//    implementation 'com.zhihu.android:sugaradapter:1.8.16'
+    implementation project(path: ":sugaradapter")
     kapt 'com.zhihu.android:sugaradapter-processor:1.8.16'
 
     implementation project(path: ":inboxrecyclerview")

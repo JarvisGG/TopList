@@ -3,6 +3,7 @@ package com.topList.android.ui.feed
 import android.graphics.Color
 import android.os.Bundle
 import android.view.LayoutInflater
+import android.view.MotionEvent
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.viewModels
@@ -15,14 +16,18 @@ import com.topList.android.api.NetResult
 import com.topList.android.api.model.State
 import com.topList.android.base.ui.BasePagingFragment
 import com.topList.android.ui.LOADING
+import com.topList.android.ui.detail.DetailFragment
 import com.topList.android.ui.feed.domain.FeedRemoteDataSource
 import com.topList.android.ui.feed.domain.FeedRepository
 import com.topList.android.ui.feed.domain.LoadFeedParams
 import com.topList.android.ui.feed.domain.LoadFeedUseCase
 import com.topList.android.ui.feed.holder.FeedHolder
+import com.topList.android.ui.widget.NormalViewScrollJudge
 import com.zhihu.android.sugaradapter.SugarAdapter
 import kotlinx.android.synthetic.main.fragment_feed.*
 import me.saket.inboxrecyclerview.dimming.TintPainter
+import me.saket.inboxrecyclerview.page.InterceptResult
+import me.saket.inboxrecyclerview.page.OnPullToCollapseInterceptor
 
 /**
  * @author yyf
@@ -30,12 +35,19 @@ import me.saket.inboxrecyclerview.dimming.TintPainter
  */
 class FeedFragment : BasePagingFragment() {
 
+    private var detailFragment: DetailFragment? = null
+
     private val vm: FeedViewModel by viewModels({ this }, { FeedViewModelFactory(LoadFeedUseCase(
         FeedRepository(FeedRemoteDataSource(Apis.feed))
     )) })
 
     override fun SugarAdapter.Builder.setupHolder(): SugarAdapter.Builder {
-        add(FeedHolder::class.java)
+        add(FeedHolder::class.java) { holder ->
+            holder.containerView.setOnClickListener {
+                detailFragment?.populate(holder.data)
+                inboxRecyclerview.expandItem(holder.itemId)
+            }
+        }
         return this
     }
 
@@ -46,6 +58,7 @@ class FeedFragment : BasePagingFragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         setupView()
+        setupPage()
         setupVM()
     }
 
@@ -53,6 +66,18 @@ class FeedFragment : BasePagingFragment() {
     override fun findSwipeRefreshLayout(): SwipeRefreshLayout = inboxSwipe
 
     private fun setupView() {
+
+        inboxDetailPage.pullToCollapseInterceptor = object : OnPullToCollapseInterceptor {
+            override fun invoke(event: MotionEvent, downX: Float, downY: Float, upwardPull: Boolean): InterceptResult {
+                val canScrollFurther = if (upwardPull) {
+                    NormalViewScrollJudge.canScrollDown(inboxDetailPage, event, downX, downY, false)
+                } else {
+                    NormalViewScrollJudge.canScrollUp(inboxDetailPage, event, downX, downY, false)
+                }
+                return if (canScrollFurther) InterceptResult.INTERCEPTED else InterceptResult.IGNORED
+            }
+
+        }
 
         inboxRecyclerview.run {
             expandablePage = inboxDetailPage
@@ -78,6 +103,18 @@ class FeedFragment : BasePagingFragment() {
             }
 
         })
+    }
+
+    private fun setupPage() {
+        detailFragment = childFragmentManager.findFragmentById(inboxDetailPage.id) as DetailFragment?
+        if (detailFragment == null) {
+            detailFragment = DetailFragment()
+        }
+
+        childFragmentManager
+            .beginTransaction()
+            .replace(inboxDetailPage.id, detailFragment!!)
+            .commitNowAllowingStateLoss()
     }
 
     override fun onRefresh() {

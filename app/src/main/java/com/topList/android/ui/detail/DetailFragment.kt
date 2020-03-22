@@ -1,22 +1,24 @@
-package com.topList.android.ui
+package com.topList.android.ui.detail
 
 import android.annotation.SuppressLint
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.webkit.*
+import androidx.fragment.app.Fragment
+import androidx.lifecycle.LiveData
+import androidx.lifecycle.MutableLiveData
 import com.topList.android.R
+import com.topList.android.api.model.FeedItem
 import kotlinx.android.synthetic.main.fragment_detail.*
-import android.webkit.WebSettings
-import androidx.navigation.fragment.navArgs
-import com.helpchoice.kotlin.koton.kotON
-import com.topList.android.ui.DetailFragmentArgs
 
-
+/**
+ * @author yyf
+ * @since 03-22-2020
+ */
 class DetailFragment : Fragment() {
 
-    private val args by navArgs<DetailFragmentArgs>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -32,7 +34,6 @@ class DetailFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         initWebSettings()
-        webview.loadUrl(args.feedItem.url)
     }
 
     @SuppressLint("SetJavaScriptEnabled")
@@ -56,5 +57,30 @@ class DetailFragment : Fragment() {
 
             supportMultipleWindows()
         }
+
+        webview.webViewClient = object : WebViewClient() {
+            override fun shouldOverrideUrlLoading(
+                view: WebView?,
+                request: WebResourceRequest?
+            ): Boolean {
+                if (request == null || view == null) {
+                    return false
+                }
+                view.loadUrl(request.url.toString())
+                return true
+            }
+
+
+
+
+        }
+
+
+
     }
+
+    fun populate(data: FeedItem) {
+        webview.loadUrl(data.url)
+    }
+
 }

@@ -1,3 +1,6 @@
 [submodule "inboxrecyclerview"]
 	path = inboxrecyclerview
 	url = git@github.com:JarvisGG/InboxRecyclerView.git
+[submodule "sugaradapter"]
+	path = sugaradapter
+	url = git@github.com:JarvisGG/SugarAdapter.git

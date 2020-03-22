@@ -14,6 +14,7 @@
     android:paddingEnd="14dp"
     android:paddingStart="14dp"
     android:paddingTop="18dp"
+    android:clickable="true"
     tools:ignore="UselessParent">
 
     <TextView
