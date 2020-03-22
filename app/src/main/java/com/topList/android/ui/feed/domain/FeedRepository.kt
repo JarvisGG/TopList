@@ -16,8 +16,8 @@ class FeedRepository (
 
 
     private suspend fun getData(
-        request: suspend () -> NetResult<State<FeedItem>>
-    ): NetResult<State<FeedItem>> {
+        request: suspend () -> NetResult<State<List<FeedItem>>>
+    ): NetResult<State<List<FeedItem>>> {
         val result = request()
         if (result is NetResult.Success) {
             cache(result.data)
@@ -25,7 +25,7 @@ class FeedRepository (
         return result
     }
 
-    private fun cache(data: State<FeedItem>) {
+    private fun cache(data: State<List<FeedItem>>) {
 
     }
 

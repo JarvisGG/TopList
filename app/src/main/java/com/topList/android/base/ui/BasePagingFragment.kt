@@ -115,7 +115,7 @@ abstract class BasePagingFragment : BaseFragment() {
         if (checkFragmentDetached()) return
         isRefresh = false
         data.clear()
-        data.addAll(result!!.data)
+        data.addAll(result!!.data as Collection<Any>)
         adapter.notifyDataSetChanged()
     }
 
