@@ -10,24 +10,7 @@
         android:id="@+id/feed_host"
         android:name="com.topList.android.ui.feed.FeedFragment"
         android:label="Feed"
-        tools:layout="@layout/fragment_feed">
+        tools:layout="@layout/fragment_feed"/>
 
-<!--        <action-->
-<!--            android:id="@+id/action_feed_host_to_detailFragment"-->
-<!--            app:destination="@id/detailFragment" />-->
-
-    </fragment>
-
-<!--    <fragment-->
-<!--        android:id="@+id/detailFragment"-->
-<!--        android:name="com.topList.android.ui.DetailFragment"-->
-<!--        android:label="fragment_detail"-->
-<!--        tools:layout="@layout/fragment_detail">-->
-
-<!--        <argument-->
-<!--            android:name="feedItem"-->
-<!--            app:argType="com.topList.android.api.model.FeedItem" />-->
-
-<!--    </fragment>-->
 
 </navigation>

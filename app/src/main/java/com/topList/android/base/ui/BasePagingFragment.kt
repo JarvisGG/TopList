@@ -12,18 +12,14 @@ import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.RecyclerView.ItemDecoration
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
 import com.topList.android.api.model.State
-import com.topList.android.base.model.ApiError
-import com.topList.android.base.model.ApiException
 import com.topList.android.base.model.Paging
 import com.zhihu.android.sugaradapter.SugarAdapter
-import okhttp3.ResponseBody
-import retrofit2.Response
 
 /**
  * @author yyf
  * @since 03-21-2020
  */
-abstract class BasePagingFragment : Fragment() {
+abstract class BasePagingFragment : BaseFragment() {
     private lateinit var swipeRefreshLayout: SwipeRefreshLayout
     private lateinit var recyclerView: RecyclerView
     lateinit var adapter: SugarAdapter

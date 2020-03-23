@@ -20,9 +20,10 @@ class FeedHolder(
 ) : SugarHolder<FeedItem>(containerView), LayoutContainer {
 
     override fun onBindData(data: FeedItem) {
-        feedItemSubject.text = data.title
-        feedItemBody.text = data.desc
+        feedItemSubject.text = data.title.trim()
+        feedItemBody.text = data.desc.trim()
         feedItemByLine.text = context.getString(R.string.feed_item_byline, data.type, TimeFormatUtils.getTime(containerView.context, data.createTime.toLong()))
+        feedItemAvatar.setImageURI(data.icon)
     }
 
 }

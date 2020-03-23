@@ -15,6 +15,8 @@ data class FeedItem(
     @SerialName("CreateTime") val createTime: String,
     @SerialName("Desc") val desc: String,
     @SerialName("Title") val title: String,
+    @SerialName("icon") val icon: String,
+    @SerialName("img") val img: String,
     @SerialName("Url") val url: String,
     @SerialName("id") val id: String,
     @SerialName("tid") val tid: String,

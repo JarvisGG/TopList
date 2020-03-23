@@ -6,20 +6,20 @@
     app:startDestination="@id/feed">
 
     <action
-            android:id="@+id/host_to_feed_graph"
-            app:destination="@id/feed" />
+        android:id="@+id/host_to_feed_graph"
+        app:destination="@id/feed" />
 
     <action
-            android:id="@+id/host_to_subscribe_graph"
-            app:destination="@id/subscribe" />
+        android:id="@+id/host_to_subscribe_graph"
+        app:destination="@id/subscribe"/>
 
     <action
         android:id="@+id/host_to_discover_graph"
-        app:destination="@id/discover" />
+        app:destination="@id/discover"/>
 
     <action
-            android:id="@+id/host_to_profile_graph"
-            app:destination="@id/profile" />
+        android:id="@+id/host_to_profile_graph"
+        app:destination="@id/profile"/>
 
     <include app:graph="@navigation/feed" />
 
