@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.webkit.*
+import androidx.browser.customtabs.CustomTabsIntent
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
@@ -69,11 +70,8 @@ class DetailFragment : Fragment() {
                 view.loadUrl(request.url.toString())
                 return true
             }
-
-
-
-
         }
+
 
 
 

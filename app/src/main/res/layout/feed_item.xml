@@ -25,6 +25,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/feedItemAvatar"
         android:textColor="@color/GBK03A"
+        android:layout_marginEnd="12dp"
         android:textSize="13sp"
         tools:text="Google Express - 15 mins ago" />
 
@@ -32,6 +33,7 @@
         android:id="@+id/feedItemSubject"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_marginEnd="12dp"
         app:layout_constraintTop_toBottomOf="@+id/feedItemByLine"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/feedItemAvatar"
@@ -48,7 +50,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         android:layout_marginEnd="2dp"
-        android:layout_marginStart="16dp"
         app:placeholderImage="@drawable/ic_avatar"
         tools:ignore="ContentDescription" />
 

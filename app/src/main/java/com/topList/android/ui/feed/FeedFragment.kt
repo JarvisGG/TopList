@@ -28,6 +28,7 @@ import kotlinx.android.synthetic.main.fragment_feed.*
 import me.saket.inboxrecyclerview.dimming.TintPainter
 import me.saket.inboxrecyclerview.page.InterceptResult
 import me.saket.inboxrecyclerview.page.OnPullToCollapseInterceptor
+import me.saket.inboxrecyclerview.page.SimplePageStateChangeCallbacks
 
 /**
  * @author yyf
@@ -76,8 +77,13 @@ class FeedFragment : BasePagingFragment() {
                 }
                 return if (canScrollFurther) InterceptResult.INTERCEPTED else InterceptResult.IGNORED
             }
-
         }
+
+        inboxDetailPage.addStateChangeCallbacks(object: SimplePageStateChangeCallbacks() {
+            override fun onPageCollapsed() {
+
+            }
+        })
 
         inboxRecyclerview.run {
             expandablePage = inboxDetailPage

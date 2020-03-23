@@ -36,20 +36,18 @@ abstract class BasePagingFragment : Fragment() {
             recyclerView.post { swipeRefreshLayout.isRefreshing = value }
         }
 
-    fun isRefresh(isNot: () -> Unit): Boolean {
-        if (!isLoading) {
-            isNot()
+    fun isRefresh(action: () -> Unit) {
+        if (isRefresh) {
+            action()
         }
-        return isLoading
     }
 
     private var isLoading: Boolean = false
 
-    fun isLoading(isNot: () -> Unit): Boolean {
-        if (!isLoading) {
-            isNot()
+    fun isLoading(action: () -> Unit) {
+        if (isLoading) {
+            action()
         }
-        return isLoading
     }
 
     protected var data = arrayListOf<Any>()
@@ -152,10 +150,10 @@ abstract class BasePagingFragment : Fragment() {
     protected open fun getScrollLoadMoreThreshold() = 5
 
     private fun loadMore() {
-        paging.index += 1
         recyclerView.post {
             if (checkFragmentDetached() || isLoading) return@post
             isLoading = true
+            paging.index += 1
             onLoadMore()
         }
     }
@@ -176,7 +174,6 @@ abstract class BasePagingFragment : Fragment() {
         if (checkFragmentDetached()) return
         isLoading = false
         if (result?.data != null && result.page != -1) {
-            paging = Paging(result.page)
             insertDataRangeToList(data.size, result.data as List<Any>)
         }
     }
