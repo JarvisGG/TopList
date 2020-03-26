@@ -4,11 +4,13 @@ import android.annotation.SuppressLint
 import android.annotation.TargetApi
 import android.content.Context
 import android.content.res.ColorStateList
+import android.content.res.TypedArray
 import android.graphics.PorterDuff
 import android.graphics.drawable.Drawable
 import android.os.Build
 import android.text.Layout
 import android.util.AttributeSet
+import android.util.Log
 import androidx.annotation.ColorRes
 import androidx.annotation.StyleRes
 import androidx.appcompat.widget.AppCompatTextView
@@ -18,6 +20,7 @@ import com.topList.theme.base.AttributeDelegate
 import com.topList.theme.base.iface.IDayNightView
 import com.topList.theme.base.utils.ResData
 import com.topList.theme.base.utils.SystemUtils
+import com.topList.theme.px2sp
 
 /**
  * @author yyf
@@ -39,6 +42,10 @@ class TTextView : AppCompatTextView, IDayNightView {
             return
         }
         delegate.save(attrs, defStyleAttr = styles)
+        val typedArray: TypedArray = context.obtainStyledAttributes(attrs, R.styleable.ThemedView, 0, 0)
+        val textSize = typedArray.getDimension(R.styleable.ThemedView_android_textSize, 0f)
+        typedArray.recycle()
+        delegate.setRawId(R.styleable.ThemedView_android_textSize, textSize)
         init()
     }
 
@@ -54,7 +61,6 @@ class TTextView : AppCompatTextView, IDayNightView {
     override fun onAttachedToWindow() {
         super.onAttachedToWindow()
         applyDrawableTintColorResource()
-
     }
 
     override fun setBackgroundResource(resid: Int) {
@@ -115,5 +121,7 @@ class TTextView : AppCompatTextView, IDayNightView {
         delegate.resetTextViewAttr()
         applyDrawableTintColorResource()
         delegate.afterReset()
+        val textSize = delegate.getRawId(R.styleable.ThemedView_android_textSize) as Float
+        setTextSize(textSize.px2sp)
     }
 }

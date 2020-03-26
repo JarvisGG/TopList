@@ -13,6 +13,7 @@ import com.topList.android.ui.profile.decor.AccountViewDecor
 import com.topList.android.ui.profile.holder.ItemHolder
 import com.topList.android.ui.profile.holder.LabelHolder
 import com.topList.android.ui.widget.CustomItemDecoration
+import com.toplist.android.annotation.Tab
 import com.zhihu.android.sugaradapter.SugarAdapter
 import kotlinx.android.synthetic.main.fragment_profile.*
 
@@ -20,6 +21,11 @@ import kotlinx.android.synthetic.main.fragment_profile.*
  * @author yyf
  * @since 03-09-2020
  */
+@Tab(
+    titleRes = R.string.profile,
+    iconRes = R.drawable.ic_profile,
+    position = 3
+)
 class ProfileFragment : BaseFragment() {
 
     private val adapter by lazy {

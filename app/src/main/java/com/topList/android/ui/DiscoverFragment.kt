@@ -6,11 +6,17 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.topList.android.R
+import com.toplist.android.annotation.Tab
 
 /**
  * @author yyf
  * @since 03-09-2020
  */
+@Tab(
+    titleRes = R.string.discover,
+    iconRes = R.drawable.ic_discover,
+    position = 2
+)
 class DiscoverFragment : Fragment() {
 
 

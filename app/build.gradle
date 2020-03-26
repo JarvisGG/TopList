@@ -89,9 +89,20 @@ dependencies {
     implementation 'androidx.browser:browser:1.2.0'
 
     // Navigation
-    implementation "androidx.navigation:navigation-fragment-ktx:2.3.0-alpha03"
-    implementation "androidx.navigation:navigation-runtime-ktx:2.3.0-alpha03"
-    implementation "androidx.navigation:navigation-ui-ktx:2.3.0-alpha03"
+    implementation "androidx.navigation:navigation-fragment-ktx:2.3.0-alpha04"
+    implementation "androidx.navigation:navigation-ui-ktx:2.3.0-alpha04"
+
+
+    def nav_version = "2.3.0-alpha04"
+
+    // Kotlin
+    implementation "androidx.navigation:navigation-fragment-ktx:$nav_version"
+    implementation "androidx.navigation:navigation-ui-ktx:$nav_version"
+    implementation "androidx.navigation:navigation-runtime-ktx:$nav_version"
+
+    // Dynamic Feature Module Support
+    implementation "androidx.navigation:navigation-dynamic-features-fragment:$nav_version"
+
 
     // Test
     implementation 'androidx.legacy:legacy-support-v4:1.0.0'
@@ -112,6 +123,9 @@ dependencies {
     debugImplementation "com.squareup.leakcanary:leakcanary-android:2.1"
     releaseImplementation "com.squareup.leakcanary:leakcanary-android-no-op:1.6.1"
 
+    // APT
+    api project(":annotation")
+    kapt project(":compiler")
 }
 
 configurations.all {

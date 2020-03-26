@@ -1,0 +1,14 @@
+import org.jetbrains.kotlin.config.KotlinCompilerVersion
+
+apply plugin: 'java-library'
+apply plugin: 'kotlin'
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$KotlinCompilerVersion.VERSION"
+
+    implementation project(':annotation')
+}
+
+targetCompatibility = '1.8'
+sourceCompatibility = '1.8'

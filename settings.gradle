@@ -7,4 +7,5 @@ include ":sugaradapter-annotation"
 project(":inboxrecyclerview").projectDir = new File(rootDir, "inboxrecyclerview/inboxrecyclerview")
 project(":sugaradapter").projectDir = new File(rootDir, "sugaradapter/sugaradapter")
 project(":sugaradapter-annotation").projectDir = new File(rootDir, "sugaradapter/sugaradapter-annotation")
-
+include ':annotation'
+include ':compiler'

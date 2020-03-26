@@ -10,7 +10,9 @@
         <option name="modules">
           <set>
             <option value="$PROJECT_DIR$" />
+            <option value="$PROJECT_DIR$/annotation" />
             <option value="$PROJECT_DIR$/app" />
+            <option value="$PROJECT_DIR$/compiler" />
             <option value="$PROJECT_DIR$/inboxrecyclerview/inboxrecyclerview" />
             <option value="$PROJECT_DIR$/sugaradapter/sugaradapter" />
             <option value="$PROJECT_DIR$/sugaradapter/sugaradapter-annotation" />

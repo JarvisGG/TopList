@@ -13,7 +13,7 @@
         android:layout_gravity="center"
         android:text="@string/subscribe"
         android:textColor="@color/GRD03A"
-        android:textSize="52sp"
+        android:textSize="@dimen/title"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

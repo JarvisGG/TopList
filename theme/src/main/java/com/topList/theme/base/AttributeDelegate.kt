@@ -25,6 +25,9 @@ import kotlin.properties.Delegates
  * @author yyf
  * @since 03-10-2020
  * set>defStyleAttr(主题可配置样式)>defStyleRes(默认样式)>NULL(主题中直接指定)
+ * 默认会保存 @xx/xx 这种格式资源
+ * 至于 xx="" 这种 HardCode 方式，子类自己处理类型（Dimension, String, Enum）
+ * 例如 textSize="18sp"
  */
 open class AttributeDelegate(
     @NonNull
@@ -37,6 +40,7 @@ open class AttributeDelegate(
     private var styleId: Int = 0
     private var styleResIdMap: IntArray by Delegates.notNull()
     private var rawResIdMap: IntArray by Delegates.notNull()
+    private var rawIdMap = arrayOfNulls<Any>(styleable.size)
 
     init {
         styleResIdMap = IntArray(styleable.size)
@@ -71,7 +75,7 @@ open class AttributeDelegate(
      * <color name="GBK02A">@color/BK02</color>
      * <color name="GBK02A">@color/BK06</color>
      * 可以这样桥接表示
-     * 这里由于用现成的色组，所以才用这种方式，但推荐 saveRawRes
+     * 这里由于用现成的色组，所以才用这种方式，但推荐 #saveRawRes
      */
     private fun saveAttrRes(attrs: AttributeSet) {
         for (index in 0 until attrs.attributeCount) {
@@ -108,13 +112,12 @@ open class AttributeDelegate(
         typedArray.recycle()
     }
 
-
     //<editor-fold desc=" ResId 存储 ">
-    private fun setStyleResId(attrIndex: Int, resId: Int) {
-        if (attrIndex >= styleResIdMap.size) {
+    private fun setStyleResId(attrIndex: Int, resourceId: Int) {
+        if (attrIndex >= styleResIdMap.size || resourceId == 0) {
             return
         }
-        styleResIdMap[attrIndex] = resId
+        styleResIdMap[attrIndex] = resourceId
     }
 
     private fun getStyleResId(attrIndex: Int): Int {
@@ -124,7 +127,7 @@ open class AttributeDelegate(
     }
 
     fun setRawResId(attrIndex: Int, resourceId: Int) {
-        if (attrIndex >= rawResIdMap.size) {
+        if (attrIndex >= rawResIdMap.size || resourceId == 0) {
             return
         }
         rawResIdMap[attrIndex] = resourceId
@@ -134,6 +137,25 @@ open class AttributeDelegate(
         return if (attrIndex >= rawResIdMap.size) {
             NO_VALUE
         } else rawResIdMap[attrIndex]
+    }
+
+    /**
+     * hardCode 专用
+     */
+    fun setRawId(attrIndex: Int, value: Any) {
+        if (attrIndex >= rawIdMap.size) {
+            return
+        }
+        rawIdMap[attrIndex] = value
+    }
+
+    /**
+     * hardCode 专用
+     */
+    fun getRawId(attrIndex: Int): Any? {
+        return if (attrIndex >= rawIdMap.size) {
+            NO_VALUE
+        } else rawIdMap[attrIndex]
     }
 
     fun getResId(index: Int): Int {
@@ -257,6 +279,10 @@ open class AttributeDelegate(
                     if (colorStateList.found && colorStateList.data != null) {
                         textView.setTextColor(colorStateList.data)
                     }
+                }
+                val textSize = getDimension(R.styleable.ThemedView_android_textSize)
+                if (textSize.found && textSize.data != null) {
+                    textView.setTextSize(TypedValue.COMPLEX_UNIT_PX, textSize.data)
                 }
                 // 最后设置 android:textStyle 属性
                 textView.setTypeface(typeface, textStyle)

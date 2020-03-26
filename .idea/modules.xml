@@ -3,7 +3,9 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/TopList.iml" filepath="$PROJECT_DIR$/TopList.iml" group="TopList" />
+      <module fileurl="file://$PROJECT_DIR$/annotation/annotation.iml" filepath="$PROJECT_DIR$/annotation/annotation.iml" group="TopList/annotation" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" group="TopList/app" />
+      <module fileurl="file://$PROJECT_DIR$/compiler/compiler.iml" filepath="$PROJECT_DIR$/compiler/compiler.iml" group="TopList/compiler" />
       <module fileurl="file://$PROJECT_DIR$/inboxrecyclerview/inboxrecyclerview/inboxrecyclerview.iml" filepath="$PROJECT_DIR$/inboxrecyclerview/inboxrecyclerview/inboxrecyclerview.iml" group="TopList/inboxrecyclerview" />
       <module fileurl="file://$PROJECT_DIR$/sugaradapter/sugaradapter/sugaradapter.iml" filepath="$PROJECT_DIR$/sugaradapter/sugaradapter/sugaradapter.iml" group="TopList/sugaradapter" />
       <module fileurl="file://$PROJECT_DIR$/sugaradapter/sugaradapter-annotation/sugaradapter-annotation.iml" filepath="$PROJECT_DIR$/sugaradapter/sugaradapter-annotation/sugaradapter-annotation.iml" group="TopList/sugaradapter-annotation" />
