@@ -1,7 +1,9 @@
 package com.topList.android.base.ui
 
+import android.content.Context
 import android.os.Bundle
 import android.view.View
+import androidx.activity.OnBackPressedCallback
 import androidx.annotation.CallSuper
 import androidx.annotation.ColorInt
 import androidx.core.content.ContextCompat
@@ -58,6 +60,17 @@ open class BaseFragment : Fragment() {
             .subscribe {
                 invalidateStatusBar()
             }
+    }
+
+    override fun onAttach(context: Context) {
+        super.onAttach(context)
+        createOnBackPressedCallback()?.apply {
+            requireActivity().onBackPressedDispatcher.addCallback(this)
+        }
+    }
+
+    protected open fun createOnBackPressedCallback(): OnBackPressedCallback? {
+        return null
     }
 
     protected open fun invalidateStatusBar() {

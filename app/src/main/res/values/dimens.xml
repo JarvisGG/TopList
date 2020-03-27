@@ -3,4 +3,7 @@
     <dimen name="nav_header_vertical_spacing">16dp</dimen>
     <dimen name="rv_profile_item_height">58dp</dimen>
     <dimen name="title">52sp</dimen>
+
+    <dimen name="tab_show_scroll_threshold">12dp</dimen>
+
 </resources>

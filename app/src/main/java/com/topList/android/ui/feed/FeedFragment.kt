@@ -1,12 +1,11 @@
 package com.topList.android.ui.feed
 
-import android.app.ActivityOptions
 import android.graphics.Color
 import android.os.Bundle
 import android.view.*
+import androidx.activity.OnBackPressedCallback
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
-import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
 import com.topList.android.HostDirections
@@ -44,6 +43,21 @@ import me.saket.inboxrecyclerview.page.SimplePageStateChangeCallbacks
 class FeedFragment : BasePagingFragment() {
 
     private var detailFragment: DetailFragment? = null
+
+    private var interceptBackEvent = false
+        set(value) {
+            feedBackPressedCallback.isEnabled = value
+            field = value
+        }
+
+    private val feedBackPressedCallback = object : OnBackPressedCallback(false) {
+        override fun handleOnBackPressed() {
+            if (inboxDetailPage.isExpanded) {
+                inboxRecyclerview.collapse()
+            }
+        }
+    }
+
 
     private val vm: FeedViewModel by viewModels({ this }, { FeedViewModelFactory(LoadFeedUseCase(
         FeedRepository(FeedRemoteDataSource(Apis.feed))
@@ -108,9 +122,15 @@ class FeedFragment : BasePagingFragment() {
 
         inboxDetailPage.addStateChangeCallbacks(object: SimplePageStateChangeCallbacks() {
             override fun onPageCollapsed() {
+                interceptBackEvent = false
+            }
 
+            override fun onPageExpanded() {
+                interceptBackEvent = true
             }
         })
+
+        inboxDetailPage.pushParentToolbarOnExpand(toolbar)
 
         inboxRecyclerview.run {
             expandablePage = inboxDetailPage
@@ -157,5 +177,11 @@ class FeedFragment : BasePagingFragment() {
     override fun onLoadMore() {
         vm.load(LoadFeedParams(paging.index, false))
     }
+
+
+    override fun createOnBackPressedCallback(): OnBackPressedCallback? {
+        return feedBackPressedCallback
+    }
+
 
 }
