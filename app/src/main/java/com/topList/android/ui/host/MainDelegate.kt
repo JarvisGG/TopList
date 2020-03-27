@@ -2,7 +2,6 @@ package com.topList.android.ui.host
 
 import android.os.Bundle
 import android.view.View
-import com.topList.android.ui.HostFragment
 
 /**
  * @author yyf

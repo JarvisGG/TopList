@@ -7,8 +7,8 @@
         <item name="android:foreground">?selectableItemBackground</item>
     </style>
 
-    <style name="Toolbar.Title" parent="TextAppearance.Widget.AppCompat.Toolbar.Title">
-        <item name="android:textSize">18sp</item>
+    <style name="TopList" parent="@style/Theme.MaterialComponents.DayNight.NoActionBar">
+
     </style>
 
     <style name="RecyclerViewItem">
@@ -35,6 +35,27 @@
     <style name="RecyclerViewLabelTitle">
         <item name="android:textColor">@color/GBK02</item>
         <item name="android:textSize">14sp</item>
+    </style>
+
+    <style name="Widget.TopList.HomeToolbar" parent="Widget.TopList.Toolbar.SmallCapsTitle">
+        <item name="android:background">@null</item>
+        <item name="android:elevation">0dp</item>
+        <item name="materialThemeOverlay">@style/ThemeOverlay.MaterialComponents.Dark.ActionBar</item>
+    </style>
+
+    <style name="Widget.TopList.Toolbar.SmallCapsTitle">
+        <item name="android:titleTextAppearance">@style/TextAppearance.ToolbarTitleSmallCaps</item>
+    </style>
+
+    <style name="Widget.TopList.Toolbar" parent="@style/Widget.MaterialComponents.Toolbar">
+        <item name="android:background">@color/GBL01A</item>
+        <item name="android:elevation">4dp</item>
+    </style>
+
+
+    <style name="TextAppearance.ToolbarTitleSmallCaps" parent="@style/TextAppearance.MaterialComponents.Headline6">
+        <item name="android:fontFeatureSettings">smcp</item>
+        <item name="android:letterSpacing">0.2</item>
     </style>
 
 </resources>

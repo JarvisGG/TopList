@@ -10,7 +10,8 @@
         android:id="@+id/feed_host"
         android:name="com.topList.android.ui.feed.FeedFragment"
         android:label="Feed"
-        tools:layout="@layout/fragment_feed"/>
+        tools:layout="@layout/fragment_feed">
 
+    </fragment>
 
 </navigation>

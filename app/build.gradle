@@ -15,7 +15,7 @@ androidExtensions {
 
 android {
     compileSdkVersion 29
-    
+
     defaultConfig {
         applicationId "com.topList.android"
         minSdkVersion 26

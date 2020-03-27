@@ -12,8 +12,6 @@ import com.topList.android.ui.profile.ProfileFragment
  * @author yyf
  * @since 03-26-2020
  */
-private val KEY_GRAPH_ID: String = "android-support-nav:fragment:graphId"
-
 val defaultTabList = arrayListOf(
     TabItem.FEED,
     TabItem.SUBSCRIBE,
@@ -27,25 +25,22 @@ val defaultTabList = arrayListOf(
 
 enum class TabItem(
     val fragmentClass: Class<out Fragment>,
-    val graphId: Int,
     val index: Int
 ) {
 
 
-    FEED(FeedFragment::class.java, R.navigation.feed, 0),
+    FEED(FeedFragment::class.java, 0),
 
-    SUBSCRIBE(SubscribeFragment::class.java, R.navigation.subscribe, 1),
+    SUBSCRIBE(SubscribeFragment::class.java, 1),
 
-    DISCOVER(DiscoverFragment::class.java, R.navigation.discover, 2),
+    DISCOVER(DiscoverFragment::class.java, 2),
 
-    PROFILE(ProfileFragment::class.java, R.navigation.profile, 3);
+    PROFILE(ProfileFragment::class.java, 3);
 
     fun getTag(): String = KEY_TAG + fragmentClass.name
 
     fun buildFragmentParam(argument: Bundle?): FragmentParam = FragmentParam(
-        fragmentClass, Bundle(argument).apply {
-            putInt(KEY_GRAPH_ID, graphId)
-        }, index
+        fragmentClass, Bundle(argument), index
     )
 
 }

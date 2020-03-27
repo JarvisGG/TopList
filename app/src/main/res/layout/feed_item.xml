@@ -27,6 +27,8 @@
         android:textColor="@color/GBK03A"
         android:layout_marginEnd="12dp"
         android:textSize="12sp"
+        android:maxLines="1"
+        android:ellipsize="end"
         tools:text="Google Express - 15 mins ago" />
 
     <TextView
@@ -41,6 +43,8 @@
         android:fontFamily="@font/worksans_bold"
         android:textColor="@color/GBK02A"
         android:textSize="14sp"
+        android:maxLines="2"
+        android:ellipsize="end"
         tools:text="Package shipped!" />
 
     <com.facebook.drawee.view.SimpleDraweeView

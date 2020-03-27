@@ -1,16 +1,15 @@
 package com.topList.android.ui.feed
 
+import android.app.ActivityOptions
 import android.graphics.Color
 import android.os.Bundle
-import android.view.LayoutInflater
-import android.view.MotionEvent
-import android.view.View
-import android.view.ViewGroup
+import android.view.*
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+import com.topList.android.HostDirections
 import com.topList.android.R
 import com.topList.android.api.Apis
 import com.topList.android.api.NetResult
@@ -26,6 +25,7 @@ import com.topList.android.ui.feed.holder.FeedHolder
 import com.topList.android.ui.widget.NormalViewScrollJudge
 import com.toplist.android.annotation.Tab
 import com.zhihu.android.sugaradapter.SugarAdapter
+import exhaustive
 import kotlinx.android.synthetic.main.fragment_feed.*
 import me.saket.inboxrecyclerview.dimming.TintPainter
 import me.saket.inboxrecyclerview.page.InterceptResult
@@ -59,12 +59,18 @@ class FeedFragment : BasePagingFragment() {
         return this
     }
 
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setHasOptionsMenu(true)
+    }
+
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         return inflater.inflate(R.layout.fragment_feed, container, false)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        setupToolbar()
         setupView()
         setupPage()
         setupVM()
@@ -72,6 +78,20 @@ class FeedFragment : BasePagingFragment() {
 
     override fun findRecyclerView(): RecyclerView = inboxRecyclerview
     override fun findSwipeRefreshLayout(): SwipeRefreshLayout = inboxSwipe
+
+    private fun setupToolbar() {
+        toolbar.inflateMenu(R.menu.main)
+        toolbar.setTitle(R.string.app_name)
+        toolbar.setOnMenuItemClickListener {
+            when (it.itemId) {
+                R.id.menu_search -> {
+                    findOverlayNavController()?.navigate(HostDirections.actionMainToSearch())
+                }
+                else -> {}
+            }.exhaustive
+            true
+        }
+    }
 
     private fun setupView() {
 

@@ -2,6 +2,7 @@ package com.topList.android
 
 import android.app.Application
 import com.facebook.drawee.backends.pipeline.Fresco
+import com.topList.android.utils.RxBus
 import com.topList.theme.ThemeManager
 import leakcanary.LeakCanary
 
@@ -13,7 +14,9 @@ class App : Application() {
 
     override fun onCreate() {
         super.onCreate()
-        ThemeManager.init(this)
+        ThemeManager.init(this) {
+            RxBus.instance.post(it)
+        }
         Fresco.initialize(this)
     }
 }

@@ -8,7 +8,7 @@ import android.view.View
 import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
 import com.topList.android.R
-import dp2px
+import com.topList.theme.dp2px
 import kotlin.math.roundToInt
 
 /**

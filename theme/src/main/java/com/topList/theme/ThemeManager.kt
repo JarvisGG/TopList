@@ -10,6 +10,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.annotation.IntDef
 import androidx.appcompat.app.AppCompatDelegate
+import com.topList.theme.base.event.ThemeEvent
 import com.topList.theme.base.iface.IDayNightView
 import com.topList.theme.base.iface.ThemeSwitchable
 import com.topList.theme.base.utils.SimpleActivityLifecycleCallbacks
@@ -35,7 +36,9 @@ object ThemeManager {
 
     private var sCurrentMode = LIGHT
 
-    fun init(context: Context) {
+    private var listener: ((theme: ThemeEvent) -> Unit)? = null
+
+    fun init(context: Context, listener: (theme: ThemeEvent) -> Unit) {
         applicationContext = context.applicationContext as Application
         val theme = readTheme(context)
         if (theme == DARK) {
@@ -60,6 +63,7 @@ object ThemeManager {
                 }
             }
         })
+        this.listener = listener
     }
 
     fun switchViewTree(view: View?) {
@@ -79,6 +83,7 @@ object ThemeManager {
     }
 
     fun switchThemeTo(@Theme mode: Int) {
+        listener?.invoke(ThemeEvent(mode))
         setCurrentTheme(mode)
         for (activity in sSwitchables) {
             activity.switchTheme(mode)

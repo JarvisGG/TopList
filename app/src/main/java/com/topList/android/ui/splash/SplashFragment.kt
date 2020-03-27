@@ -23,8 +23,9 @@ class SplashFragment : BaseFragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         vm.data.observe(viewLifecycleOwner, Observer {
-            val direction = SplashFragmentDirections.actionSplashToMain()
-            findMainNavController().navigate(direction)
+            findMainNavController().navigate(SplashFragmentDirections.actionSplashToMain())
         })
     }
+
+    override fun isSystemUiFullscreen() = true
 }

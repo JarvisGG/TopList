@@ -3,10 +3,10 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/splash"
-    app:startDestination="@id/splash_host">
+    app:startDestination="@id/splash">
 
     <fragment
-        android:id="@+id/splash_host"
+        android:id="@+id/splash"
         android:name="com.topList.android.ui.splash.SplashFragment"
         android:label="Splash"
         tools:layout="@layout/fragment_splash">
@@ -25,7 +25,7 @@
     <fragment
         android:id="@+id/main_host"
         android:label="Host"
-        android:name="com.topList.android.ui.HostFragment"
+        android:name="com.topList.android.ui.host.HostFragment"
         tools:layout="@layout/fragment_host" />
 
 </navigation>

@@ -7,7 +7,6 @@ import androidx.collection.arrayMapOf
 import androidx.coordinatorlayout.widget.CoordinatorLayout
 import com.google.android.material.bottomsheet.BottomSheetBehavior
 import com.topList.android.R
-import com.topList.android.ui.HostFragment
 import com.topList.android.ui.tab.FragmentParam
 import com.topList.android.ui.tab.defaultTabList
 import com.toplist.android.ui.tab.TabInfoInject
