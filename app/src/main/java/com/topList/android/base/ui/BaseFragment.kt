@@ -32,8 +32,14 @@ open class BaseFragment : Fragment() {
 
     private var compositeDisposable = CompositeDisposable()
 
+    /**
+     *
+     */
     fun findMainNavController() = requireActivity().findNavController(R.id.frag_nav_host)
 
+    /**
+     * 默认要用 overlay 启动页面
+     */
     fun findOverlayNavController(): NavController? {
         if(parentFragment is HostFragment) {
             return (parentFragment as HostFragment).getOverlayNavController()
@@ -79,8 +85,6 @@ open class BaseFragment : Fragment() {
         return ContextCompat.getColor(context!!, if (ThemeManager.isDark()) R.color.BK01 else R.color.BK08)
     }
 
-    protected open fun isSystemUiFullscreen(): Boolean {
-        return false
-    }
+    protected open fun isSystemUiFullscreen() = false
 
 }

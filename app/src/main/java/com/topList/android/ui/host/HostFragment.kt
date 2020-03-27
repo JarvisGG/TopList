@@ -8,7 +8,6 @@ import androidx.navigation.NavController
 import androidx.navigation.fragment.NavHostFragment
 import com.topList.android.R
 import com.topList.android.base.ui.BaseFragment
-import kotlinx.android.synthetic.main.fragment_host.*
 
 /**
  * @author yyf
@@ -23,13 +22,13 @@ class HostFragment : BaseFragment() {
         NavHostFragment.create(R.navigation.host)
     }
 
-    private val delagate: IMainDelegate by lazy {
+    private val delegate: IMainDelegate by lazy {
         MainDelegate(fragment = this@HostFragment)
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        delagate.onCreate(savedInstanceState)
+        delegate.onCreate(savedInstanceState)
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
@@ -38,7 +37,7 @@ class HostFragment : BaseFragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        delagate.onViewCreated(view, savedInstanceState)
+        delegate.onViewCreated(view, savedInstanceState)
 
         if (!overlayFragment.isAdded) {
             parentFragmentManager.beginTransaction()
