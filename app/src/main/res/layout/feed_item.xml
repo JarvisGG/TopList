@@ -8,7 +8,7 @@
     android:layout_marginEnd="4dp"
     android:layout_marginStart="4dp"
     android:layout_marginTop="2dp"
-    android:background="@color/GBK99A"
+    android:background="@color/GBK99"
     android:stateListAnimator="@animator/feed_item_stateanimator"
     android:paddingBottom="16dp"
     android:paddingEnd="14dp"
@@ -26,7 +26,7 @@
         app:layout_constraintEnd_toStartOf="@+id/feedItemAvatar"
         android:textColor="@color/GBK03A"
         android:layout_marginEnd="12dp"
-        android:textSize="13sp"
+        android:textSize="12sp"
         tools:text="Google Express - 15 mins ago" />
 
     <TextView
@@ -40,7 +40,7 @@
         android:layout_marginTop="4dp"
         android:fontFamily="@font/worksans_bold"
         android:textColor="@color/GBK02A"
-        android:textSize="18sp"
+        android:textSize="14sp"
         tools:text="Package shipped!" />
 
     <com.facebook.drawee.view.SimpleDraweeView
@@ -68,6 +68,7 @@
         android:gravity="center_vertical"
         android:maxLines="1"
         android:textColor="@color/GBK03A"
+        android:textSize="12sp"
         tools:text="I'll be in your neighborhood doing errands..." />
 
 

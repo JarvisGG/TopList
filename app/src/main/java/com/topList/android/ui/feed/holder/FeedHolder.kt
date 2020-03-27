@@ -23,7 +23,7 @@ class FeedHolder(
         feedItemSubject.text = data.title.trim()
         feedItemBody.text = data.desc.trim()
         feedItemByLine.text = context.getString(R.string.feed_item_byline, data.type, TimeFormatUtils.getTime(containerView.context, data.createTime.toLong()))
-        feedItemAvatar.setImageURI(data.icon)
+        feedItemAvatar.setImageURI(data.img)
     }
 
 }
