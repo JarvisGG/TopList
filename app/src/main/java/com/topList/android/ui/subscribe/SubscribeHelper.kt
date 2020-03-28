@@ -6,14 +6,15 @@ import com.topList.android.api.model.SubscribeItem
 import com.topList.android.ui.subscribe.model.CategoryItem
 import com.topList.android.ui.subscribe.model.StationUseItem
 import com.topList.android.ui.subscribe.model.SubscribeUseItem
+import timber.log.Timber
 
 object SubscribeHelper {
-    fun getCategoryData(result: NetResult<State<State<List<SubscribeItem>>>>): SubscribeUseItem {
+    fun getCategoryData(result: NetResult<State<List<SubscribeItem>>>): SubscribeUseItem {
         val categoryList = mutableListOf<CategoryItem>()
         val stationList = mutableListOf<StationUseItem>()
         when (result) {
             is NetResult.Success -> {
-                for (category in result.data.data.data) {
+                for (category in result.data.data) {
                     categoryList.add(CategoryItem(category.name, false))
                     for (station in category.list) {
                         stationList.add(StationUseItem(station))

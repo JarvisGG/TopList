@@ -4,7 +4,7 @@ import android.os.Bundle
 import androidx.fragment.app.Fragment
 import com.topList.android.R
 import com.topList.android.ui.DiscoverFragment
-import com.topList.android.ui.SubscribeFragment
+import com.topList.android.ui.subscribe.SubscribeFragment
 import com.topList.android.ui.feed.FeedFragment
 import com.topList.android.ui.profile.ProfileFragment
 

@@ -15,9 +15,13 @@ data class SubscribeItem(
 @Parcelize
 @Serializable
 data class StationItem(
+    @SerialName("follow_number") val followNumber: Int,
+    @SerialName("hot") val hot: String,
+    @SerialName("site_desc") val siteDesc: String,
     @SerialName("type") val type: String,
     @SerialName("name") val name: String,
     @SerialName("img") val img: String,
     @SerialName("id") val id: String,
-    @SerialName("icon") val icon: String
+    @SerialName("icon") val icon: String,
+    @SerialName("update_time") val updateTime: String
 ) : Parcelable

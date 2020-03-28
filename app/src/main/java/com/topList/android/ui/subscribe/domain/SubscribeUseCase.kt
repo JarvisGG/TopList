@@ -7,7 +7,7 @@ import com.topList.android.api.model.SubscribeItem
 class SubscribeUseCase (
     private val subscribeRepository: SubscribeRepository
 ) {
-    suspend operator fun invoke(): NetResult<State<State<List<SubscribeItem>>>> {
+    suspend operator fun invoke(): NetResult<State<List<SubscribeItem>>> {
         return when(val result = subscribeRepository.loadSubscribeInfo()) {
             is NetResult.Success -> {
                 NetResult.Success(result.data)

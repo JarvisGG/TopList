@@ -12,8 +12,8 @@ class SubscribeRepository(
     }
 
     private suspend fun getData(
-        request: suspend () -> NetResult<State<State<List<SubscribeItem>>>>
-    ): NetResult<State<State<List<SubscribeItem>>>> {
+        request: suspend () -> NetResult<State<List<SubscribeItem>>>
+    ): NetResult<State<List<SubscribeItem>>> {
         val result = request()
         if (result is NetResult.Success) {
 

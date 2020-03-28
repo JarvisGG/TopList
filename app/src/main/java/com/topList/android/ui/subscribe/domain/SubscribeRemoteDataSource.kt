@@ -10,7 +10,7 @@ import java.io.IOException
 class SubscribeRemoteDataSource(
     private val service: FeedService
 ) {
-    suspend fun loadSubscribeItems(): NetResult<State<State<List<SubscribeItem>>>> {
+    suspend fun loadSubscribeItems(): NetResult<State<List<SubscribeItem>>> {
         return try {
             val response = service.getSubscribeList()
             getResult(response) {
@@ -22,9 +22,9 @@ class SubscribeRemoteDataSource(
     }
 
     private inline fun getResult(
-        response: Response<State<State<List<SubscribeItem>>>>,
+        response: Response<State<List<SubscribeItem>>>,
         onError: () -> NetResult.Error
-    ): NetResult<State<State<List<SubscribeItem>>>> {
+    ): NetResult<State<List<SubscribeItem>>> {
         if (response.isSuccessful) {
             val body = response.body()
             if (body != null) {

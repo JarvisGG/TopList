@@ -38,6 +38,6 @@ interface FeedService {
     ): Response<State<List<FeedItem>>>
 
     @GET("GetSiteType")
-    suspend fun getSubscribeList(): Response<State<State<List<SubscribeItem>>>>
+    suspend fun getSubscribeList(): Response<State<List<SubscribeItem>>>
 
 }
