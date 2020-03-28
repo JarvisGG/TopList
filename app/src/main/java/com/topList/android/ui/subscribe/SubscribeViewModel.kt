@@ -1,31 +1,27 @@
 package com.topList.android.ui.subscribe
 
-import androidx.lifecycle.viewModelScope
-import com.topList.android.api.Apis
+import androidx.lifecycle.*
 import com.topList.android.base.BaseViewModel
-import com.topList.android.utils.Resource
-import kotlinx.coroutines.launch
-import timber.log.Timber
+import com.topList.android.ui.subscribe.domain.SubscribeUseCase
+import com.topList.android.ui.subscribe.model.SubscribeUseItem
 
-class SubscribeViewModel : BaseViewModel() {
+class SubscribeViewModel(
+    private val subscribeUserCase: SubscribeUseCase
+) : BaseViewModel() {
 
-    init {
-        fetchSubscribeInfo()
-    }
-
-    private fun fetchSubscribeInfo() {
-        viewModelScope.launch {
-            try {
-                val response = Apis.feed.getSubscribeList()
-                if (response.isSuccessful) {
-                    Timber.e("${Resource.Success(response.body()!!.data)}")
-                } else {
-                    Timber.e("${response.errorBody()}")
-                }
-            } catch (e: Exception) {
-                Timber.e(e)
-            }
-
+    fun fetchSubscribeItems(): LiveData<SubscribeUseItem> {
+        return liveData {
+            emit(subscribeUserCase())
+        }.map {
+            SubscribeHelper.getCategoryData(it)
         }
+    }
+}
+
+class SubscribeViewModelFactory(
+    private val subscribeUserCase: SubscribeUseCase
+): ViewModelProvider.Factory {
+    override fun <T : ViewModel?> create(modelClass: Class<T>): T {
+        return SubscribeViewModel(subscribeUserCase) as T
     }
 }
