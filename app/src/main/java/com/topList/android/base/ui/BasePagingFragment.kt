@@ -5,7 +5,6 @@ import android.view.View
 import androidx.annotation.CallSuper
 import androidx.annotation.IntRange
 import androidx.annotation.UiThread
-import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.DefaultItemAnimator
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -20,16 +19,16 @@ import com.zhihu.android.sugaradapter.SugarAdapter
  * @since 03-21-2020
  */
 abstract class BasePagingFragment : BaseFragment() {
-    private lateinit var swipeRefreshLayout: SwipeRefreshLayout
+    private var swipeRefreshLayout: SwipeRefreshLayout? = null
     private lateinit var recyclerView: RecyclerView
     lateinit var adapter: SugarAdapter
 
     open var paging: Paging = Paging(0)
 
-    private var isRefresh: Boolean = false
+    open var isRefresh: Boolean = false
         set(value) {
             field = value
-            recyclerView.post { swipeRefreshLayout.isRefreshing = value }
+            recyclerView.post { swipeRefreshLayout?.isRefreshing = value }
         }
 
     fun isRefresh(action: () -> Unit) {
@@ -38,7 +37,7 @@ abstract class BasePagingFragment : BaseFragment() {
         }
     }
 
-    private var isLoading: Boolean = false
+    open var isLoading: Boolean = false
 
     fun isLoading(action: () -> Unit) {
         if (isLoading) {
@@ -83,7 +82,7 @@ abstract class BasePagingFragment : BaseFragment() {
             }
         })
         swipeRefreshLayout = findSwipeRefreshLayout()
-        swipeRefreshLayout.setOnRefreshListener { refresh() }
+        swipeRefreshLayout?.setOnRefreshListener { refresh() }
 
         refresh()
     }
@@ -93,10 +92,12 @@ abstract class BasePagingFragment : BaseFragment() {
      */
     abstract fun findRecyclerView(): RecyclerView
 
-    abstract fun findSwipeRefreshLayout(): SwipeRefreshLayout
+    open fun findSwipeRefreshLayout(): SwipeRefreshLayout? {
+        return null
+    }
 
     private fun refresh() {
-        swipeRefreshLayout.post {
+        recyclerView.post {
             if (checkFragmentDetached()) {
                 return@post
             }
@@ -169,7 +170,7 @@ abstract class BasePagingFragment : BaseFragment() {
     protected open fun postLoadMoreSucceed(result: State<Any>?) {
         if (checkFragmentDetached()) return
         isLoading = false
-        if (result?.data != null && result.page != -1) {
+        if (result?.data != null) {
             insertDataRangeToList(data.size, result.data as List<Any>)
         }
     }

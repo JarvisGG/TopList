@@ -11,16 +11,50 @@
         android:name="com.topList.android.ui.PlaceHolderFragment"
         android:label="placeHolder">
 
+        <action
+            android:id="@+id/action_main_to_search"
+            app:destination="@id/search"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@anim/nav_default_exit_anim"
+            app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+            app:popExitAnim="@anim/nav_default_pop_exit_anim"/>
+
+
     </fragment>
 
-    <action
-        android:id="@+id/action_main_to_search"
-        app:destination="@id/search" />
 
     <fragment
         android:id="@+id/search"
-        android:name="com.topList.android.SearchFragment"
+        android:name="com.topList.android.ui.search.SearchFragment"
         android:label="fragment_search"
-        tools:layout="@layout/fragment_search" />
+        tools:layout="@layout/fragment_search" >
+
+        <action
+            android:id="@+id/action_search_to_detail"
+            app:destination="@id/detail"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@anim/nav_default_exit_anim"
+            app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+            app:popExitAnim="@anim/nav_default_pop_exit_anim">
+
+            <argument
+                android:name="url"
+                app:argType="string" />
+
+        </action>
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/detail"
+        android:name="com.topList.android.ui.detail.DetailFragment"
+        android:label="fragment_detial"
+        tools:layout="@layout/fragment_detail">
+
+        <argument
+            android:name="url"
+            app:argType="string" />
+
+    </fragment>
 
 </navigation>

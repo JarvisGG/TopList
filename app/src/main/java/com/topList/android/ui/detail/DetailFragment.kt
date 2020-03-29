@@ -1,84 +1,47 @@
 package com.topList.android.ui.detail
 
 import android.annotation.SuppressLint
+import android.net.Uri
 import android.os.Bundle
-import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
-import android.webkit.*
-import androidx.browser.customtabs.CustomTabsIntent
-import androidx.fragment.app.Fragment
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
-import com.topList.android.R
-import com.topList.android.api.model.FeedItem
-import kotlinx.android.synthetic.main.fragment_detail.*
+import android.webkit.WebSettings
+import androidx.navigation.fragment.navArgs
+import com.topList.android.webkit.WebFragment
 
 /**
  * @author yyf
  * @since 03-22-2020
  */
-class DetailFragment : Fragment() {
+class DetailFragment : WebFragment() {
 
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-    }
-
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        return inflater.inflate(R.layout.fragment_detail, container, false)
-    }
+    private val args by navArgs<DetailFragmentArgs>()
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        initWebSettings()
+        initBundle()
+    }
+
+    private fun initBundle() {
+        val url = try {
+            args.url
+        } catch (e: Exception) {
+            ""
+        }
+        if (url.isNotEmpty()) {
+            populate(url)
+        }
+    }
+
+    fun populate(url: String) {
+        containerWebView.loadUrl(url)
     }
 
     @SuppressLint("SetJavaScriptEnabled")
-    private fun initWebSettings() {
-        webview.settings.apply {
-            javaScriptEnabled = true
-            useWideViewPort = true
-            loadWithOverviewMode = true
-            domStorageEnabled = true
-            databaseEnabled = true
-            allowFileAccess = true
-            loadsImagesAutomatically = true
-            displayZoomControls = false
-            defaultTextEncodingName = "UTF-8"
-            layoutAlgorithm = WebSettings.LayoutAlgorithm.NORMAL
-
-            setSupportZoom(false)
-            setSupportMultipleWindows(true)
-            setAppCacheEnabled(true)
-            setAppCachePath(context!!.cacheDir.absolutePath)
-
-            supportMultipleWindows()
-        }
-
-        webview.webViewClient = object : WebViewClient() {
-            override fun shouldOverrideUrlLoading(
-                view: WebView?,
-                request: WebResourceRequest?
-            ): Boolean {
-                if (request == null || view == null) {
-                    return false
-                }
-                view.loadUrl(request.url.toString())
-                return true
-            }
-        }
-
-
-
-
+    override fun setWebSettings(settings: WebSettings) {
+        super.setWebSettings(settings)
+        settings.javaScriptEnabled = true
     }
 
-    fun populate(data: FeedItem) {
-        webview.loadUrl(data.url)
-    }
+    override fun shouldOverrideUrlLoading(url: Uri) = true
 
 }

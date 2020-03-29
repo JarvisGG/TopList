@@ -26,7 +26,7 @@ import com.topList.theme.px2sp
  * @author yyf
  * @since 03-11-2020
  */
-class TTextView : AppCompatTextView, IDayNightView {
+open class TTextView : AppCompatTextView, IDayNightView {
 
     private val delegate: AttributeDelegate by lazy {
         AttributeDelegate(this)

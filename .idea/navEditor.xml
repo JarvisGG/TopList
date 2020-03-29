@@ -95,9 +95,37 @@
             <LayoutPositions>
               <option name="myPositions">
                 <map>
-                  <entry key="action_main_to_search">
+                  <entry key="detail">
                     <value>
-                      <LayoutPositions />
+                      <LayoutPositions>
+                        <option name="myPosition">
+                          <Point>
+                            <option name="x" value="508" />
+                            <option name="y" value="4" />
+                          </Point>
+                        </option>
+                      </LayoutPositions>
+                    </value>
+                  </entry>
+                  <entry key="placeHolder">
+                    <value>
+                      <LayoutPositions>
+                        <option name="myPosition">
+                          <Point>
+                            <option name="x" value="12" />
+                            <option name="y" value="4" />
+                          </Point>
+                        </option>
+                        <option name="myPositions">
+                          <map>
+                            <entry key="action_main_to_search">
+                              <value>
+                                <LayoutPositions />
+                              </value>
+                            </entry>
+                          </map>
+                        </option>
+                      </LayoutPositions>
                     </value>
                   </entry>
                   <entry key="search">
@@ -105,21 +133,18 @@
                       <LayoutPositions>
                         <option name="myPosition">
                           <Point>
-                            <option name="x" value="12" />
-                            <option name="y" value="12" />
+                            <option name="x" value="244" />
+                            <option name="y" value="6" />
                           </Point>
                         </option>
-                      </LayoutPositions>
-                    </value>
-                  </entry>
-                  <entry key="transparent">
-                    <value>
-                      <LayoutPositions>
-                        <option name="myPosition">
-                          <Point>
-                            <option name="x" value="-204" />
-                            <option name="y" value="16" />
-                          </Point>
+                        <option name="myPositions">
+                          <map>
+                            <entry key="action_search_to_detail">
+                              <value>
+                                <LayoutPositions />
+                              </value>
+                            </entry>
+                          </map>
                         </option>
                       </LayoutPositions>
                     </value>
