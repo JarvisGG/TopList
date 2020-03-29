@@ -12,4 +12,3 @@
 <video id="video" width="300" height="640" controls="" preload="none" poster="https://github.com/JarvisGG/TopList/blob/develop/screens/device-2020-03-26-195007.png?raw=true">
 <source id="mp4" src="https://github.com/JarvisGG/TopList/blob/develop/screens/device-2020-03-26-195410.mp4?raw=true" type="video/mp4">
 </video>
-
