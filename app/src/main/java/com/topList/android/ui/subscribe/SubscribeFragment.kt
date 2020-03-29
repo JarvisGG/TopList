@@ -4,7 +4,6 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.GridLayoutManager
@@ -14,6 +13,7 @@ import com.topList.android.R
 import com.toplist.android.annotation.Tab
 import com.topList.android.api.Apis
 import com.topList.android.api.model.SubscribeItem
+import com.topList.android.base.ui.BaseFragment
 import com.topList.android.ui.subscribe.domain.SubscribeRemoteDataSource
 import com.topList.android.ui.subscribe.domain.SubscribeRepository
 import com.topList.android.ui.subscribe.domain.SubscribeUseCase
@@ -39,7 +39,7 @@ import timber.log.Timber
     iconRes = R.drawable.ic_subscribe,
     position = 1
 )
-class SubscribeFragment : Fragment() {
+class SubscribeFragment : BaseFragment() {
 
     private val vm: SubscribeViewModel by viewModels {
         SubscribeViewModelFactory(SubscribeUseCase(SubscribeRepository(SubscribeRemoteDataSource(Apis.feed))))

@@ -12,11 +12,6 @@ import com.toplist.android.annotation.Tab
  * @author yyf
  * @since 03-09-2020
  */
-@Tab(
-    titleRes = R.string.discover,
-    iconRes = R.drawable.ic_discover,
-    position = 2
-)
 class DiscoverFragment : Fragment() {
 
 

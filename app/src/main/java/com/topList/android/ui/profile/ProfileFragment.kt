@@ -72,4 +72,5 @@ class ProfileFragment : BaseFragment() {
         }
     }
 
+    override fun isSystemUiFullscreen() = true
 }
