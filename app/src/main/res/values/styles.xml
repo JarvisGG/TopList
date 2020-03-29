@@ -40,6 +40,9 @@
     <style name="Widget.TopList.HomeToolbar" parent="Widget.TopList.Toolbar.SmallCapsTitle">
         <item name="android:background">@null</item>
         <item name="android:elevation">4dp</item>
+        <item name="actionMenuTextColor">@color/GBK04A</item>
+        <item name="colorControlNormal">@color/GBK04A</item>
+        <item name="colorPrimary">@color/GBK04A</item>
         <item name="materialThemeOverlay">@style/ThemeOverlay.MaterialComponents.Dark.ActionBar</item>
     </style>
 
