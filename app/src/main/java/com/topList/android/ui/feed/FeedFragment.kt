@@ -68,7 +68,7 @@ class FeedFragment : BasePagingFragment() {
     override fun SugarAdapter.Builder.setupHolder(): SugarAdapter.Builder {
         add(FeedHolder::class.java) { holder ->
             holder.containerView.setOnClickListener {
-                detailFragment?.populate(holder.data.url)
+                detailFragment?.populate(holder.data.url, true)
                 inboxRecyclerview.expandItem(holder.itemId)
             }
         }

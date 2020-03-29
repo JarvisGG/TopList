@@ -46,6 +46,26 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
+
+    signingConfigs {
+        toplist {
+            keyAlias "toplist"
+            keyPassword "yth5rUVz"
+            storeFile rootProject.file("keystore/key")
+            storePassword "yth5rUVz"
+        }
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile("proguard-android.txt"), "proguard-rules.pro"
+            signingConfig signingConfigs.toplist
+        }
+        debug {
+            signingConfig signingConfigs.toplist
+        }
+    }
 }
 
 

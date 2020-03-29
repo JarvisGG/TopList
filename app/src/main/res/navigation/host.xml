@@ -41,6 +41,11 @@
                 android:name="url"
                 app:argType="string" />
 
+            <argument
+                android:name="inner"
+                android:defaultValue="false"
+                app:argType="boolean" />
+
         </action>
 
     </fragment>
@@ -54,6 +59,10 @@
         <argument
             android:name="url"
             app:argType="string" />
+
+        <argument
+            android:name="inner"
+            app:argType="boolean" />
 
     </fragment>
 
