@@ -14,7 +14,7 @@ data class LoadFeedParams(val page: Int, val isFollowed: Boolean)
 class LoadFeedUseCase (
     private val feedRepository: FeedRepository
 ) {
-    suspend operator fun invoke(params: LoadFeedParams): NetResult<State<FeedItem>> {
+    suspend operator fun invoke(params: LoadFeedParams): NetResult<State<List<FeedItem>>> {
         val result = feedRepository.loadFeed(params.page, params.isFollowed)
         return when (result) {
             is NetResult.Success -> {

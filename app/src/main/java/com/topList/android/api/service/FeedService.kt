@@ -2,6 +2,7 @@ package com.topList.android.api.service
 
 import com.topList.android.api.model.FeedItem
 import com.topList.android.api.model.State
+import com.topList.android.api.model.SubscribeItem
 import retrofit2.Response
 import retrofit2.http.GET
 import retrofit2.http.Query
@@ -34,7 +35,9 @@ interface FeedService {
     suspend fun loadFeedList(
         @Query("time") page: String, // time 就是 page,从第 0 页开始计数
         @Query("is_follow") isFollow: String // 是否只获取订阅最新1是0否
-    ): Response<State<FeedItem>>
+    ): Response<State<List<FeedItem>>>
 
+    @GET("GetSiteType")
+    suspend fun getSubscribeList(): Response<State<List<SubscribeItem>>>
 
 }

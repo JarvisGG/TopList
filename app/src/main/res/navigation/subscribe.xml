@@ -8,7 +8,7 @@
 
     <fragment
             android:id="@+id/subscribe_host"
-            android:name="com.topList.android.ui.SubscribeFragment"
+            android:name="com.topList.android.ui.subscribe.SubscribeFragment"
             android:label="Subscribe"
             tools:layout="@layout/fragment_subscribe"/>
 

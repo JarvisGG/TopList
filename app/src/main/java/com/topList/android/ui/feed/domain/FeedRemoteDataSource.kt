@@ -15,7 +15,7 @@ import java.io.IOException
 class FeedRemoteDataSource  (
     private val service: FeedService
 ) {
-    suspend fun loadFeed(page: Int, isFollowed: Boolean): NetResult<State<FeedItem>> {
+    suspend fun loadFeed(page: Int, isFollowed: Boolean): NetResult<State<List<FeedItem>>> {
         return try {
             val response = service.loadFeedList(page.toString(), if (isFollowed) "1" else "0")
             getResult(response = response, onError = {
@@ -28,4 +28,16 @@ class FeedRemoteDataSource  (
         }
     }
 
+    private inline fun getResult(
+        response: Response<State<List<FeedItem>>>,
+        onError: () -> NetResult.Error
+    ): NetResult<State<List<FeedItem>>> {
+        if (response.isSuccessful) {
+            val body = response.body()
+            if (body != null) {
+                return NetResult.Success(body)
+            }
+        }
+        return onError.invoke()
+    }
 }
