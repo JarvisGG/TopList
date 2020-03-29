@@ -1,6 +1,7 @@
 package com.topList.android.ui.feed.domain
 
 import com.topList.android.api.NetResult
+import com.topList.android.api.getResult
 import com.topList.android.api.model.FeedItem
 import com.topList.android.api.model.State
 import com.topList.android.api.service.FeedService
@@ -39,6 +40,4 @@ class FeedRemoteDataSource  (
         }
         return onError.invoke()
     }
-
-
 }

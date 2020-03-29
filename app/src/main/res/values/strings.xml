@@ -28,4 +28,9 @@
     <string name="time_relative_year">%1$d 年前</string>
 
     <string name="feed_item_byline">%1$s %2$s</string>
+
+    <string name="search_hint">搜索</string>
+    <string name="no_search_results">无结果 \n“%1$s”</string>
+
+
 </resources>

@@ -62,11 +62,21 @@ open class BaseFragment : Fragment() {
             }
     }
 
+    override fun onResume() {
+        super.onResume()
+        invalidateStatusBar()
+    }
+
     override fun onAttach(context: Context) {
         super.onAttach(context)
         createOnBackPressedCallback()?.apply {
             requireActivity().onBackPressedDispatcher.addCallback(this)
         }
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        mStatusBarDrawable = null
     }
 
     protected open fun createOnBackPressedCallback(): OnBackPressedCallback? {

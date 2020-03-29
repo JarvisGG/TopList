@@ -8,13 +8,13 @@ import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.RecyclerView
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
-import com.topList.android.HostDirections
 import com.topList.android.R
 import com.topList.android.api.Apis
 import com.topList.android.api.NetResult
 import com.topList.android.api.model.State
 import com.topList.android.base.ui.BasePagingFragment
 import com.topList.android.ui.LOADING
+import com.topList.android.ui.PlaceHolderFragmentDirections
 import com.topList.android.ui.detail.DetailFragment
 import com.topList.android.ui.feed.domain.FeedRemoteDataSource
 import com.topList.android.ui.feed.domain.FeedRepository
@@ -59,14 +59,16 @@ class FeedFragment : BasePagingFragment() {
     }
 
 
-    private val vm: FeedViewModel by viewModels({ this }, { FeedViewModelFactory(LoadFeedUseCase(
-        FeedRepository(FeedRemoteDataSource(Apis.feed))
-    )) })
+    private val vm: FeedViewModel by viewModels({ this }, { FeedViewModelFactory(
+        LoadFeedUseCase(
+            FeedRepository(FeedRemoteDataSource(Apis.feed))
+        )
+    ) })
 
     override fun SugarAdapter.Builder.setupHolder(): SugarAdapter.Builder {
         add(FeedHolder::class.java) { holder ->
             holder.containerView.setOnClickListener {
-                detailFragment?.populate(holder.data)
+                detailFragment?.populate(holder.data.url)
                 inboxRecyclerview.expandItem(holder.itemId)
             }
         }
@@ -91,7 +93,7 @@ class FeedFragment : BasePagingFragment() {
     }
 
     override fun findRecyclerView(): RecyclerView = inboxRecyclerview
-    override fun findSwipeRefreshLayout(): SwipeRefreshLayout = inboxSwipe
+    override fun findSwipeRefreshLayout(): SwipeRefreshLayout? = inboxSwipe
 
     private fun setupToolbar() {
         toolbar.inflateMenu(R.menu.main)
@@ -99,7 +101,7 @@ class FeedFragment : BasePagingFragment() {
         toolbar.setOnMenuItemClickListener {
             when (it.itemId) {
                 R.id.menu_search -> {
-                    findOverlayNavController()?.navigate(HostDirections.actionMainToSearch())
+                    findOverlayNavController()?.navigate(PlaceHolderFragmentDirections.actionMainToSearch())
                 }
                 else -> {}
             }.exhaustive

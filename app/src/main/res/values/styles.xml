@@ -39,7 +39,7 @@
 
     <style name="Widget.TopList.HomeToolbar" parent="Widget.TopList.Toolbar.SmallCapsTitle">
         <item name="android:background">@null</item>
-        <item name="android:elevation">0dp</item>
+        <item name="android:elevation">4dp</item>
         <item name="materialThemeOverlay">@style/ThemeOverlay.MaterialComponents.Dark.ActionBar</item>
     </style>
 
@@ -56,6 +56,17 @@
     <style name="TextAppearance.ToolbarTitleSmallCaps" parent="@style/TextAppearance.MaterialComponents.Headline6">
         <item name="android:fontFeatureSettings">smcp</item>
         <item name="android:letterSpacing">0.2</item>
+    </style>
+
+    <style name="TextAppearance.DialogContent" parent="@style/TextAppearance.MaterialComponents.Subtitle1">
+        <item name="android:fontFamily">sans-serif-medium</item>
+        <item name="android:letterSpacing">0.01</item>
+        <item name="lineHeightHint">24sp</item>
+    </style>
+
+    <style name="TextAppearance.EmptyText" parent="@style/TextAppearance.DialogContent">
+        <item name="android:textColor">@color/GBK02A</item>
+        <item name="lineHeightHint">24sp</item>
     </style>
 
 </resources>

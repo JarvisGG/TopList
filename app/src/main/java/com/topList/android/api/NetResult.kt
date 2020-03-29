@@ -16,6 +16,10 @@
 
 package com.topList.android.api
 
+import com.topList.android.api.model.FeedItem
+import com.topList.android.api.model.State
+import retrofit2.Response
+
 /**
  * A generic class that holds a value with its loading status.
  * @param <T>
@@ -31,4 +35,18 @@ sealed class NetResult<out T : Any> {
             is Error -> "Error[exception=$exception]"
         }
     }
+}
+
+
+inline fun <T> getResult(
+    response: Response<State<T>>,
+    onError: () -> NetResult.Error
+): NetResult<State<T>> {
+    if (response.isSuccessful) {
+        val body = response.body()
+        if (body != null) {
+            return NetResult.Success(body)
+        }
+    }
+    return onError.invoke()
 }
