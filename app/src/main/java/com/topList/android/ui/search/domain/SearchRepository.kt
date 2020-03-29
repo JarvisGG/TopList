@@ -15,7 +15,7 @@ class SearchRepository (
     private val service: SearchService
 ) {
 
-    suspend fun loadSearch(key: String): NetResult<State<SearchItem>> {
+    suspend fun loadSearch(key: String): NetResult<State<List<SearchItem>>> {
         return try {
             val response = service.loadSearchList(key)
             getResult(response = response, onError = {

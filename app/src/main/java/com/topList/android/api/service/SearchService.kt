@@ -15,6 +15,6 @@ interface SearchService {
     @GET("SearchKey")
     suspend fun loadSearchList(
         @Query("key") key: String // 搜索关键字
-    ): Response<State<SearchItem>>
+    ): Response<State<List<SearchItem>>>
 
 }
