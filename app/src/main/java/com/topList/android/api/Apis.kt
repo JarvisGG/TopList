@@ -4,6 +4,7 @@ import com.jakewharton.retrofit2.converter.kotlinx.serialization.asConverterFact
 import com.topList.android.BuildConfig
 import com.topList.android.api.service.FeedService
 import com.topList.android.api.service.SearchService
+import com.topList.android.api.service.SubscribeService
 import kotlinx.serialization.StringFormat
 import kotlinx.serialization.json.Json
 import kotlinx.serialization.json.JsonConfiguration
@@ -43,4 +44,9 @@ internal object Apis {
      * 搜索接口
      */
     val search: SearchService = retrofit.create(SearchService::class.java)
+
+    /**
+     * 订阅接口
+     */
+    val subscribe: SubscribeService = retrofit.create(SubscribeService::class.java)
 }

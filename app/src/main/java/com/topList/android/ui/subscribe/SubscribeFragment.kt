@@ -28,7 +28,6 @@ import com.topList.android.ui.widget.CustomItemDecoration
 import com.zhihu.android.sugaradapter.SugarAdapter
 import kotlinx.android.synthetic.main.fragment_subscribe.*
 import kotlinx.android.synthetic.main.view_toolbar.*
-import timber.log.Timber
 
 /**
  * @author yyf
@@ -42,7 +41,7 @@ import timber.log.Timber
 class SubscribeFragment : BaseFragment() {
 
     private val vm: SubscribeViewModel by viewModels {
-        SubscribeViewModelFactory(SubscribeUseCase(SubscribeRepository(SubscribeRemoteDataSource(Apis.feed))))
+        SubscribeViewModelFactory(SubscribeUseCase(SubscribeRepository(SubscribeRemoteDataSource(Apis.subscribe))))
     }
 
     private val categoryList = arrayListOf<CategoryItem>()
@@ -167,7 +166,7 @@ class SubscribeFragment : BaseFragment() {
                         val target = targetPosition - (layoutManager as GridLayoutManager).findFirstVisibleItemPosition()
                         if (0 <= target && target < rv_content.childCount) {
                             val top = rv_content.getChildAt(target).top
-                            rv_content.smoothScrollBy(0, top)
+                            rv_content.scrollBy(0, top)
                         }
                     }
                 }
@@ -207,11 +206,11 @@ class SubscribeFragment : BaseFragment() {
 
         when {
             position <= firstVisiblePosition -> {
-                rv_content.smoothScrollToPosition(position)
+                rv_content.scrollToPosition(position)
             }
             position <= lastVisiblePosition -> {
                 val top = rv_content.getChildAt(position-firstVisiblePosition).top
-                rv_content.smoothScrollBy(0, top)
+                rv_content.scrollBy(0, top)
             }
             else -> {
                 rv_content.scrollToPosition(position)
