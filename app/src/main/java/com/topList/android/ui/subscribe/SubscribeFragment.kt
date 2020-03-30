@@ -167,7 +167,7 @@ class SubscribeFragment : BaseFragment() {
                         val target = targetPosition - (layoutManager as GridLayoutManager).findFirstVisibleItemPosition()
                         if (0 <= target && target < rv_content.childCount) {
                             val top = rv_content.getChildAt(target).top
-                            rv_content.smoothScrollBy(0, top)
+                            rv_content.scrollBy(0, top)
                         }
                     }
                 }
@@ -207,11 +207,11 @@ class SubscribeFragment : BaseFragment() {
 
         when {
             position <= firstVisiblePosition -> {
-                rv_content.smoothScrollToPosition(position)
+                rv_content.scrollToPosition(position)
             }
             position <= lastVisiblePosition -> {
                 val top = rv_content.getChildAt(position-firstVisiblePosition).top
-                rv_content.smoothScrollBy(0, top)
+                rv_content.scrollBy(0, top)
             }
             else -> {
                 rv_content.scrollToPosition(position)
