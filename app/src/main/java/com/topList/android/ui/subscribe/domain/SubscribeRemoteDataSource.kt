@@ -3,12 +3,12 @@ package com.topList.android.ui.subscribe.domain
 import com.topList.android.api.NetResult
 import com.topList.android.api.model.State
 import com.topList.android.api.model.SubscribeItem
-import com.topList.android.api.service.FeedService
+import com.topList.android.api.service.SubscribeService
 import retrofit2.Response
 import java.io.IOException
 
 class SubscribeRemoteDataSource(
-    private val service: FeedService
+    private val service: SubscribeService
 ) {
     suspend fun loadSubscribeItems(): NetResult<State<List<SubscribeItem>>> {
         return try {

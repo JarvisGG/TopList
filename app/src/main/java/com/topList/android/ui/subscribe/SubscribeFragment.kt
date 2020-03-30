@@ -28,7 +28,6 @@ import com.topList.android.ui.widget.CustomItemDecoration
 import com.zhihu.android.sugaradapter.SugarAdapter
 import kotlinx.android.synthetic.main.fragment_subscribe.*
 import kotlinx.android.synthetic.main.view_toolbar.*
-import timber.log.Timber
 
 /**
  * @author yyf
@@ -42,7 +41,7 @@ import timber.log.Timber
 class SubscribeFragment : BaseFragment() {
 
     private val vm: SubscribeViewModel by viewModels {
-        SubscribeViewModelFactory(SubscribeUseCase(SubscribeRepository(SubscribeRemoteDataSource(Apis.feed))))
+        SubscribeViewModelFactory(SubscribeUseCase(SubscribeRepository(SubscribeRemoteDataSource(Apis.subscribe))))
     }
 
     private val categoryList = arrayListOf<CategoryItem>()
