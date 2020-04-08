@@ -5,8 +5,13 @@ import android.net.Uri
 import android.os.Bundle
 import android.view.View
 import android.webkit.WebSettings
+import androidx.browser.customtabs.CustomTabsIntent
+import androidx.core.content.ContextCompat
 import androidx.navigation.fragment.navArgs
+import com.topList.android.R
 import com.topList.android.webkit.WebFragment
+import com.topList.android.webkit.customtabs.CustomTabActivityHelper
+import com.topList.theme.ThemeManager
 
 /**
  * @author yyf
@@ -19,6 +24,9 @@ class DetailFragment : WebFragment() {
     private var inner: Boolean = false
 
     private var url: String = ""
+
+    private val helper = CustomTabActivityHelper()
+
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -47,13 +55,42 @@ class DetailFragment : WebFragment() {
         }
     }
 
+    fun block() {
+        containerWebView.loadUrl("about:blank")
+    }
+
     @SuppressLint("SetJavaScriptEnabled")
     override fun setWebSettings(settings: WebSettings) {
         super.setWebSettings(settings)
         settings.javaScriptEnabled = true
     }
 
-    override fun shouldOverrideUrlLoading(url: Uri) = true
+    override fun shouldOverrideUrlLoading(uri: Uri): Boolean {
+        if (uri.toString().startsWith("http") || uri.toString().startsWith("https")) {
+            return false
+        }
+        return true
+    }
+
+    override fun javascriptToInject(): String? {
+        if (ThemeManager.isDark()) {
+            return "document.body.style.backgroundColor=\"#222222\";document.getElementsByTagName('body')[0].style.webkitTextFillColor= '#8a8a8a';"
+        }
+        return null
+    }
 
     override fun isSystemUiFullscreen() = inner
+
+    private fun openLocalBrowser(uri: Uri) {
+        CustomTabActivityHelper.openCustomTab(
+            requireActivity(),
+            CustomTabsIntent.Builder(helper.session)
+                .setToolbarColor(ContextCompat.getColor(requireContext(), R.color.GBK99A))
+                .setShowTitle(true)
+                .enableUrlBarHiding()
+                .addDefaultShareMenuItem()
+                .build(),
+            uri
+        )
+    }
 }

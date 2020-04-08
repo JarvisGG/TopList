@@ -61,19 +61,25 @@ class BottomNavigationBehavior(
             if (deltaY < 0 == isShown) {
                 return
             }
-            isShown = deltaY < 0
-
-            animator?.cancel()
-            animator = ObjectAnimator.ofFloat(
-                child,
-                View.TRANSLATION_Y,
-                child.translationY,
-                if (isShown) 0f else child.height.toFloat()
-            ).apply {
-                interpolator = DecelerateInterpolator()
-                start()
-            }
+            startAnim(child, deltaY < 0)
             deltaY = 0
+        }
+    }
+
+    fun startAnim(child: View, isShown: Boolean) {
+        if (isShown == this.isShown) {
+            return
+        }
+        this.isShown = isShown
+        animator?.cancel()
+        animator = ObjectAnimator.ofFloat(
+            child,
+            View.TRANSLATION_Y,
+            child.translationY,
+            if (isShown) 0f else child.height.toFloat()
+        ).apply {
+            interpolator = DecelerateInterpolator()
+            start()
         }
     }
 

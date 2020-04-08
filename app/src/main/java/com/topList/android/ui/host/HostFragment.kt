@@ -4,10 +4,14 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.coordinatorlayout.widget.CoordinatorLayout
 import androidx.navigation.NavController
 import androidx.navigation.fragment.NavHostFragment
+import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.topList.android.R
 import com.topList.android.base.ui.BaseFragment
+import com.topList.android.ui.feed.behavior.BottomNavigationBehavior
+import kotlinx.android.synthetic.main.fragment_host.*
 
 /**
  * @author yyf
@@ -45,6 +49,22 @@ class HostFragment : BaseFragment() {
                 .setPrimaryNavigationFragment(overlayFragment)
                 .commitAllowingStateLoss()
         }
+    }
+
+    override fun displayBottomNavigationBar(isShown: Boolean) {
+        bottomNav.findBehavior()?.startAnim(bottomNav, isShown)
+    }
+
+
+    fun BottomNavigationView.findBehavior(): BottomNavigationBehavior? {
+        var behavior: BottomNavigationBehavior ?= null
+        val lp = layoutParams
+        if (lp is CoordinatorLayout.LayoutParams) {
+            if (lp.behavior is BottomNavigationBehavior) {
+                behavior = lp.behavior as BottomNavigationBehavior
+            }
+        }
+        return behavior
     }
 
     fun getOverlayNavController(): NavController {

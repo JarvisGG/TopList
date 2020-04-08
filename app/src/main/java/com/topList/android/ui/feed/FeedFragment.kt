@@ -24,7 +24,7 @@ import com.topList.android.ui.feed.holder.FeedHolder
 import com.topList.android.ui.widget.NormalViewScrollJudge
 import com.toplist.android.annotation.Tab
 import com.zhihu.android.sugaradapter.SugarAdapter
-import exhaustive
+import com.topList.android.exhaustive
 import kotlinx.android.synthetic.main.fragment_feed.*
 import me.saket.inboxrecyclerview.dimming.TintPainter
 import me.saket.inboxrecyclerview.page.InterceptResult
@@ -54,6 +54,8 @@ class FeedFragment : BasePagingFragment() {
         override fun handleOnBackPressed() {
             if (inboxDetailPage.isExpanded) {
                 inboxRecyclerview.collapse()
+                detailFragment?.block()
+                displayBottomNavigationBar(true)
             }
         }
     }
@@ -70,6 +72,7 @@ class FeedFragment : BasePagingFragment() {
             holder.containerView.setOnClickListener {
                 detailFragment?.populate(holder.data.url, true)
                 inboxRecyclerview.expandItem(holder.itemId)
+                displayBottomNavigationBar(false)
             }
         }
         return this
@@ -103,8 +106,7 @@ class FeedFragment : BasePagingFragment() {
                 R.id.menu_search -> {
                     findOverlayNavController()?.navigate(PlaceHolderFragmentDirections.actionMainToSearch())
                 }
-                else -> {}
-            }.exhaustive
+            }
             true
         }
     }

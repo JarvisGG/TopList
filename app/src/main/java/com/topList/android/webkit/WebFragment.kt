@@ -111,12 +111,12 @@ open class WebFragment : BaseFragment() {
     /**
      * 返回 true 则拦截指定 url 跳转
      */
-    open fun shouldOverrideUrlLoading(url: Uri): Boolean = false
+    open fun shouldOverrideUrlLoading(uri: Uri): Boolean = false
 
     /**
      * 返回 true 则拦截指定资源请求
      */
-    open fun shouldInterceptRequest(url: Uri): Boolean = false
+    open fun shouldInterceptRequest(uri: Uri): Boolean = false
 
     override fun onPause() {
         webView.onPause()
