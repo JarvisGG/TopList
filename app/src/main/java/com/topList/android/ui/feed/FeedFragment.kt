@@ -53,6 +53,10 @@ class FeedFragment : BasePagingFragment() {
     private val feedBackPressedCallback = object : OnBackPressedCallback(false) {
         override fun handleOnBackPressed() {
             if (inboxDetailPage.isExpanded) {
+                if (detailFragment?.canGoBack() == true) {
+                    detailFragment?.goBack()
+                    return
+                }
                 inboxRecyclerview.collapse()
                 detailFragment?.block()
                 displayBottomNavigationBar(true)

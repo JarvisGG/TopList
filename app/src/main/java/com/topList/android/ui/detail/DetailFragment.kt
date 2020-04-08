@@ -59,6 +59,14 @@ class DetailFragment : WebFragment() {
         containerWebView.loadUrl("about:blank")
     }
 
+    fun canGoBack(): Boolean {
+        return containerWebView.canGoBack()
+    }
+
+    fun goBack() {
+        containerWebView.goBack()
+    }
+
     @SuppressLint("SetJavaScriptEnabled")
     override fun setWebSettings(settings: WebSettings) {
         super.setWebSettings(settings)
