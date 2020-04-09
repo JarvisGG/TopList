@@ -1,5 +1,6 @@
 package com.topList.android.webkit
 
+import android.graphics.Bitmap
 import android.net.Uri
 import android.os.Build
 import android.os.Bundle
@@ -14,6 +15,8 @@ import kotlinx.android.synthetic.main.fragment_detail.*
 open class WebFragment : BaseFragment() {
 
     lateinit var containerWebView: WebViews
+
+    private var clearHistory = false
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -68,9 +71,25 @@ open class WebFragment : BaseFragment() {
                 }
                 return super.shouldInterceptRequest(view, request)
             }
+
+            override fun onPageFinished(view: WebView?, url: String?) {
+                super.onPageFinished(view, url)
+                if (clearHistory) {
+                    webView.clearHistory()
+                    clearHistory = false
+                }
+            }
+
+            override fun onPageStarted(view: WebView?, url: String?, favicon: Bitmap?) {
+                super.onPageStarted(view, url, favicon)
+            }
         }
 
         url()?.let { webView.loadUrl(it) }
+    }
+
+    fun setClearHistory(clear: Boolean) {
+        clearHistory = clear
     }
 
     /**

@@ -6,6 +6,7 @@ import android.view.*
 import androidx.activity.OnBackPressedCallback
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
+import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.RecyclerView
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
 import com.topList.android.R
@@ -24,7 +25,7 @@ import com.topList.android.ui.feed.holder.FeedHolder
 import com.topList.android.ui.widget.NormalViewScrollJudge
 import com.toplist.android.annotation.Tab
 import com.zhihu.android.sugaradapter.SugarAdapter
-import com.topList.android.exhaustive
+import com.topList.android.ui.hsitory.HistoryRecorder
 import kotlinx.android.synthetic.main.fragment_feed.*
 import me.saket.inboxrecyclerview.dimming.TintPainter
 import me.saket.inboxrecyclerview.page.InterceptResult
@@ -72,11 +73,13 @@ class FeedFragment : BasePagingFragment() {
     ) })
 
     override fun SugarAdapter.Builder.setupHolder(): SugarAdapter.Builder {
+
         add(FeedHolder::class.java) { holder ->
             holder.containerView.setOnClickListener {
                 detailFragment?.populate(holder.data.url, true)
                 inboxRecyclerview.expandItem(holder.itemId)
                 displayBottomNavigationBar(false)
+                HistoryRecorder.record(holder.data, lifecycleScope, requireContext())
             }
         }
         return this

@@ -8,6 +8,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.topList.android.R
 import com.topList.android.base.ui.BaseFragment
+import com.topList.android.ui.PlaceHolderFragmentDirections
 import com.topList.android.ui.profile.ProfileItem.*
 import com.topList.android.ui.profile.decor.AccountViewDecor
 import com.topList.android.ui.profile.holder.ItemHolder
@@ -30,13 +31,13 @@ class ProfileFragment : BaseFragment() {
 
     private val adapter by lazy {
         SugarAdapter.Builder.with(sProfileList)
-            .add(ItemHolder::class.java) {
-                when(it.data.data) {
-                    THEME -> {
-
+            .add(ItemHolder::class.java) { holder ->
+                holder.containerView.setOnClickListener {
+                    when(holder.data.data) {
+                        HISTORY -> findOverlayNavController()?.navigate(PlaceHolderFragmentDirections.actionMainToHistory())
                     }
-                    else -> {}
                 }
+
             }
             .add(LabelHolder::class.java)
             .build()

@@ -49,6 +49,8 @@ class DetailFragment : WebFragment() {
      */
     fun populate(url: String, inr: Boolean) {
         containerWebView.loadUrl(url)
+        setClearHistory(true)
+
         inner = inr
         if (inr) {
             invalidateStatusBar()
@@ -58,6 +60,7 @@ class DetailFragment : WebFragment() {
     fun block() {
         containerWebView.loadUrl("about:blank")
     }
+
 
     fun canGoBack(): Boolean {
         return containerWebView.canGoBack()

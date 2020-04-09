@@ -18,6 +18,13 @@
             app:exitAnim="@anim/nav_default_exit_anim"
             app:popEnterAnim="@anim/nav_default_pop_enter_anim"
             app:popExitAnim="@anim/nav_default_pop_exit_anim"/>
+        <action
+            android:id="@+id/action_main_to_history"
+            app:destination="@id/history"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@anim/nav_default_exit_anim"
+            app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+            app:popExitAnim="@anim/nav_default_pop_exit_anim" />
 
 
     </fragment>
@@ -63,6 +70,33 @@
         <argument
             android:name="inner"
             app:argType="boolean" />
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/history"
+        android:name="com.topList.android.ui.hsitory.HistoryFragment"
+        android:label="HistoryFragment"
+        tools:layout="@layout/fragment_history">
+
+        <action
+            android:id="@+id/action_history_to_detail"
+            app:destination="@id/detail"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@anim/nav_default_exit_anim"
+            app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+            app:popExitAnim="@anim/nav_default_pop_exit_anim">
+
+            <argument
+                android:name="url"
+                app:argType="string" />
+
+            <argument
+                android:name="inner"
+                android:defaultValue="false"
+                app:argType="boolean" />
+
+        </action>
 
     </fragment>
 

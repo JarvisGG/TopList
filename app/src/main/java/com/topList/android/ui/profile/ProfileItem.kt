@@ -16,7 +16,7 @@ enum class ProfileItem(
     HISTORY(R.drawable.ic_history, "历史记录"),
     THEME(R.drawable.ic_theme, "主题", true),
     FRONT(R.drawable.ic_font, "字体大小"),
-    SETTING(R.drawable.ic_setting, "系统设置"),
+//    SETTING(R.drawable.ic_setting, "系统设置"),
     FEEDBACK(R.drawable.ic_feedback, "用户反馈")
 }
 
@@ -26,7 +26,7 @@ val sProfileList = arrayListOf(
     LabelData("设置"),
     ItemData(ProfileItem.THEME),
     ItemData(ProfileItem.FRONT),
-    ItemData(ProfileItem.SETTING),
+//    ItemData(ProfileItem.SETTING),
     LabelData("反馈"),
     ItemData(ProfileItem.FEEDBACK)
 )
