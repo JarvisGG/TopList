@@ -36,13 +36,10 @@ open class BaseFragment : Fragment() {
 
     private var compositeDisposable = CompositeDisposable()
 
-    /**
-     *
-     */
     fun findMainNavController() = requireActivity().findNavController(R.id.frag_nav_host)
 
     /**
-     * 默认要用 overlay 启动页面
+     * 默认要用 overlay 启动页面, 只在 3 个 Tab 页用，其他页面均用 [findNavController]
      */
     fun findOverlayNavController(): NavController? {
         if(parentFragment is HostFragment) {

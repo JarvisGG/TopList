@@ -5,5 +5,5 @@ package com.topList.android.base
  * @since 03-19-2020
  */
 interface IDataRender<T> {
-    fun renderData(data: T)
+    fun renderData(data: T?)
 }

@@ -65,16 +65,19 @@ class TButton : AppCompatButton, IDayNightView {
     }
 
     private fun applyDrawableTintColorResource() {
-        val colorRes: ResData<ColorStateList?> = delegate.getColorStateList(R.styleable.ThemedView_tintColor)
-        if (colorRes.found) {
-            val color: Int = colorRes.data!!.getColorForState(drawableState, 0)
-            for (drawable in compoundDrawables) {
-                drawable?.mutate()?.setColorFilter(color, PorterDuff.Mode.SRC_IN)
+        try {
+            val colorRes: ResData<ColorStateList?> =
+                delegate.getColorStateList(R.styleable.ThemedView_tintColor)
+            if (colorRes.found) {
+                val color: Int = colorRes.data!!.getColorForState(drawableState, 0)
+                for (drawable in compoundDrawables) {
+                    drawable?.mutate()?.setColorFilter(color, PorterDuff.Mode.SRC_IN)
+                }
+                for (drawable in compoundDrawablesRelative) {
+                    drawable?.mutate()?.setColorFilter(color, PorterDuff.Mode.SRC_IN)
+                }
             }
-            for (drawable in compoundDrawablesRelative) {
-                drawable?.mutate()?.setColorFilter(color, PorterDuff.Mode.SRC_IN)
-            }
-        }
+        } catch (e : Exception) {}
     }
 
     override fun resetStyle() {

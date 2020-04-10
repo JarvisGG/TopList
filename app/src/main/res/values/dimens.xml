@@ -27,5 +27,10 @@
     <dimen name="fab_size">56dp</dimen>
     <dimen name="fab_radius">28dp</dimen>
 
+    <dimen name="edit_text_padding_default">16dp</dimen>
+    <dimen name="single_edit_text_default">18sp</dimen>
 
+
+    <dimen name="edit_text_default">14sp</dimen>
+    <dimen name="button_text_default">16sp</dimen>
 </resources>

@@ -8,32 +8,12 @@
     android:layout_height="match_parent"
     android:background="@color/GBK10A">
 
-    <FrameLayout
-        android:id="@+id/iv_header"
+
+    <com.topList.android.ui.profile.decor.AccountView
+        android:id="@+id/av_header"
         android:layout_width="match_parent"
         android:layout_height="230dp"
-        android:background="@drawable/profile_head"
-        app:layout_constraintTop_toTopOf="parent">
-
-        <TextView
-            android:layout_width="120dp"
-            android:layout_height="40dp"
-            android:layout_gravity="center"
-            android:gravity="center"
-            android:textSize="14sp"
-            android:clickable="true"
-            style="@style/ViewClick"
-            android:background="@drawable/bg_account"
-            android:text="登录/注册"/>
-
-    </FrameLayout>
-
-<!--    <com.topList.android.ui.profile.decor.AccountView-->
-<!--        android:id="@+id/av_header"-->
-<!--        android:layout_width="match_parent"-->
-<!--        android:layout_height="230dp"-->
-<!--        android:background="@drawable/profile_head"-->
-<!--        app:layout_constraintTop_toTopOf="parent"/>-->
+        app:layout_constraintTop_toTopOf="parent"/>
 
 
     <androidx.recyclerview.widget.RecyclerView

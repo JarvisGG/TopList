@@ -18,9 +18,18 @@
             app:exitAnim="@anim/nav_default_exit_anim"
             app:popEnterAnim="@anim/nav_default_pop_enter_anim"
             app:popExitAnim="@anim/nav_default_pop_exit_anim"/>
+
         <action
             android:id="@+id/action_main_to_history"
             app:destination="@id/history"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@anim/nav_default_exit_anim"
+            app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+            app:popExitAnim="@anim/nav_default_pop_exit_anim" />
+
+        <action
+            android:id="@+id/action_main_to_login"
+            app:destination="@id/login"
             app:enterAnim="@anim/nav_default_enter_anim"
             app:exitAnim="@anim/nav_default_exit_anim"
             app:popEnterAnim="@anim/nav_default_pop_enter_anim"
@@ -99,5 +108,11 @@
         </action>
 
     </fragment>
+
+    <fragment
+        android:id="@+id/login"
+        android:name="com.topList.android.ui.account.login.LoginFragment"
+        android:label="login"
+        tools:layout="@layout/fragment_login" />
 
 </navigation>

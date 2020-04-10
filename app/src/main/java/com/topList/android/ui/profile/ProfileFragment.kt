@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.topList.android.R
+import com.topList.android.api.model.People
 import com.topList.android.base.ui.BaseFragment
 import com.topList.android.ui.PlaceHolderFragmentDirections
 import com.topList.android.ui.profile.ProfileItem.*
@@ -49,10 +50,6 @@ class ProfileFragment : BaseFragment() {
 
     private lateinit var accountDecor: AccountViewDecor
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-    }
-
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         return inflater.inflate(R.layout.fragment_profile, container, false)
     }
@@ -64,7 +61,12 @@ class ProfileFragment : BaseFragment() {
 
     private fun initView() {
 
-//        accountDecor = AccountViewDecor(av_header)
+        accountDecor = AccountViewDecor(av_header, this)
+//        accountDecor.renderData(People(
+//            img = "https://tvax1.sinaimg.cn/crop.0.0.1080.1080.180/c0f7eb44ly8g6p5etd3etj20u00u0gnl.jpg?KID=imgbed,tva&Expires=1586513108&ssig=wFUN77bAQD",
+//            nickname = "一条漂泊的咸鱼"
+//        ))
+        accountDecor.renderData(null)
 
         rv_profile.run {
             adapter = this@ProfileFragment.adapter

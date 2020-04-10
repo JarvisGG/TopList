@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/GBK99A">
+
+    <ImageView
+        android:id="@+id/btnClose"
+        android:layout_width="46dp"
+        android:layout_height="46dp"
+        android:layout_gravity="start"
+        android:layout_marginStart="8dp"
+        android:padding="11dp"
+        android:src="@drawable/icon_nav_close"
+        app:layout_constraintBottom_toTopOf="@+id/scrollView"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+    <ScrollView
+        android:id="@+id/scrollView"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:fillViewport="true"
+        android:layout_marginTop="?android:actionBarSize"
+        app:layout_constraintBottom_toTopOf="@+id/tvRegister"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/tvTitle"
+                style="@style/RegisterTitleTextView"
+                android:text="Login"
+                app:layout_constraintTop_toTopOf="parent"/>
+
+            <com.topList.android.ui.widget.TitleEditText
+                android:id="@+id/etEmail"
+                style="@style/RegisterItem"
+                android:layout_marginTop="24dp"
+                app:editHint="Enter your email"
+                app:layout_constraintTop_toBottomOf="@id/tvTitle"
+                app:title="Email"/>
+
+            <com.topList.android.ui.widget.TitleEditText
+                android:id="@+id/etPwd"
+                style="@style/RegisterItem"
+                app:editHint="Enter Your Password"
+                app:layout_constraintTop_toBottomOf="@id/etEmail"
+                app:title="Passward"/>
+
+            <Button
+                android:id="@+id/btnLogin"
+                style="@style/BlueButton"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="32dp"
+                android:text="login"
+                android:textColor="@color/GBK99"
+                app:layout_constraintEnd_toEndOf="@id/tvTitle"
+                app:layout_constraintStart_toStartOf="@id/tvTitle"
+                app:layout_constraintTop_toBottomOf="@id/etPwd"/>
+
+            <TextView
+                android:id="@+id/tvForgetPwd"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="8dp"
+                android:layout_marginTop="12dp"
+                android:paddingBottom="12dp"
+                android:paddingTop="12dp"
+                android:text="忘记密码？"
+                android:textColor="@color/GBL01A"
+                android:textSize="14sp"
+                app:layout_constraintStart_toStartOf="@id/btnLogin"
+                app:layout_constraintTop_toBottomOf="@id/btnLogin"/>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+
+    <TextView
+        android:id="@+id/tvRegister"
+        style="@style/SingleLine"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="240dp"
+        android:paddingBottom="40dp"
+        android:paddingStart="40dp"
+        android:paddingTop="12dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:text="Need an Account? Register"
+        />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
