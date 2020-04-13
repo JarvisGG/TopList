@@ -1,5 +1,6 @@
 package com.topList.android.ui.feed.holder
 
+import android.text.Html
 import android.view.View
 import com.topList.android.R
 import com.topList.android.R2
@@ -20,7 +21,7 @@ class FeedHolder(
 ) : SugarHolder<FeedItem>(containerView), LayoutContainer {
 
     override fun onBindData(data: FeedItem) {
-        feedItemSubject.text = data.title.trim()
+        feedItemSubject.text = Html.fromHtml(data.title.trim(), Html.FROM_HTML_MODE_LEGACY)
         feedItemBody.text = data.desc.trim()
         feedItemByLine.text = context.getString(R.string.feed_item_byline, data.type, TimeFormatUtils.getTime(containerView.context, data.createTime.toLong()))
         feedItemAvatar.setImageURI(data.img)

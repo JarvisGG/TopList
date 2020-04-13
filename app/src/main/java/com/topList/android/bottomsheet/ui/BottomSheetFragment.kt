@@ -7,6 +7,7 @@ import android.widget.FrameLayout
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.constraintlayout.widget.ConstraintSet
 import androidx.core.view.children
+import androidx.navigation.fragment.findNavController
 import com.basefex.exchange.widget.sheet.ActionSheetLayout
 import com.basefex.exchange.widget.sheet.IBottomSheetOperator
 import com.basefex.exchange.widget.sheet.action.ActionFunction
@@ -61,7 +62,7 @@ abstract class BottomSheetFragment: BaseFragment(), IBottomSheetOperator {
     fun getSheetFunction(): BottomSheetFunction = sheetFunction
 
     fun popBack() {
-        findMainNavController().navigateUp()
+        findNavController().navigateUp()
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
@@ -211,9 +212,9 @@ abstract class BottomSheetFragment: BaseFragment(), IBottomSheetOperator {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         sheetFunction = BottomSheetFunction(actionSheet) {
-            parentFragmentManager.beginTransaction()
-                .remove(this@BottomSheetFragment)
-                .commitNowAllowingStateLoss()
+            fragmentManager?.beginTransaction()
+                ?.remove(this@BottomSheetFragment)
+                ?.commitNowAllowingStateLoss()
 
         }.injectView(
             BottomSheetFunction.Config().apply {
