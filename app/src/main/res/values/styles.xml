@@ -129,5 +129,51 @@
         <item name="android:background">@drawable/bg_button_blue</item>
     </style>
 
+    <style name="NumberPinLineField">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:inputType">number</item>
+        <item name="android:textSize">@dimen/single_edit_text_default</item>
+        <item name="isCursorEnabled">true</item>
+        <item name="fieldColor">@color/GBK07A</item>
+        <item name="highlightColor">@color/GBK02A</item>
+        <item name="cursorColor">@color/GBL01A</item>
+        <item name="cursorWidth">2dp</item>
+        <item name="distanceInBetween">8dp</item>
+        <item name="bottomTextPaddingDp">11dp</item>
+        <item name="highlightType">currentField</item>
+    </style>
+
+    <style name="ResendButton" parent="Clickable">
+        <item name="textStart">@string/send</item>
+        <item name="textReset">@string/resend</item>
+        <item name="textInCountPrefix">@string/resend_prefix</item>
+        <item name="textInCountSuffix">@string/resend_suffix</item>
+        <item name="android:background">@null</item>
+        <item name="countDownTime">60</item>
+        <item name="countDownInterval">1</item>
+        <item name="textColorEnable">@color/GBL01A</item>
+        <item name="textColorDisable">@color/GBK04A</item>
+        <item name="android:gravity">right|center_vertical</item>
+    </style>
+
+
+    <declare-styleable name="BaseFexLinePinField">
+        <attr name="bottomTextPaddingDp" format="dimension"/>
+        <attr name="cursorColor" format="color"/>
+        <attr name="cursorWidth" format="dimension"/>
+    </declare-styleable>
+
+    <declare-styleable name="CountDownButton">
+        <attr name="countDownTime" format="integer"/>
+        <attr name="countDownInterval" format="integer"/>
+        <attr name="textStart" format="string"/>
+        <attr name="textInCountPrefix" format="string"/>
+        <attr name="textInCountSuffix" format="string"/>
+        <attr name="textReset" format="string"/>
+        <attr name="textColorEnable" format="color"/>
+        <attr name="textColorDisable" format="color"/>
+    </declare-styleable>
+
 
 </resources>

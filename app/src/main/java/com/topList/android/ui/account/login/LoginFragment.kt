@@ -32,5 +32,8 @@ class LoginFragment : BaseFragment() {
         btnClose.setOnClickListener {
             findNavController().navigateUp()
         }
+        tvRegister.setOnClickListener {
+            findNavController().navigate(LoginFragmentDirections.actionLoginToRegister())
+        }
     }
 }

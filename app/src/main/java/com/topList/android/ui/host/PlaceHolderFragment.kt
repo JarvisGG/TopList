@@ -1,4 +1,4 @@
-package com.topList.android.ui
+package com.topList.android.ui.host
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.FrameLayout
 import androidx.fragment.app.Fragment
+import com.topList.android.R
 
 /**
  * @author yyf
@@ -18,6 +19,6 @@ class PlaceHolderFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        return FrameLayout(context!!)
+        return layoutInflater.inflate(R.layout.fragment_place_holder, container, false)
     }
 }

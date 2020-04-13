@@ -12,5 +12,8 @@
 
     <color name="dark_icon">#99000000</color> <!-- 60% black-->
 
+    <color name="pinFieldLibraryAccent">#FF4081</color>
+
+
 
 </resources>

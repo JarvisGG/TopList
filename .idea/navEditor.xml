@@ -107,6 +107,27 @@
                       </LayoutPositions>
                     </value>
                   </entry>
+                  <entry key="emailCheck">
+                    <value>
+                      <LayoutPositions>
+                        <option name="myPosition">
+                          <Point>
+                            <option name="x" value="1094" />
+                            <option name="y" value="-1017" />
+                          </Point>
+                        </option>
+                        <option name="myPositions">
+                          <map>
+                            <entry key="action_emailCheck_to_login2">
+                              <value>
+                                <LayoutPositions />
+                              </value>
+                            </entry>
+                          </map>
+                        </option>
+                      </LayoutPositions>
+                    </value>
+                  </entry>
                   <entry key="history">
                     <value>
                       <LayoutPositions>
@@ -134,8 +155,17 @@
                         <option name="myPosition">
                           <Point>
                             <option name="x" value="614" />
-                            <option name="y" value="-789" />
+                            <option name="y" value="-708" />
                           </Point>
+                        </option>
+                        <option name="myPositions">
+                          <map>
+                            <entry key="action_login_to_register">
+                              <value>
+                                <LayoutPositions />
+                              </value>
+                            </entry>
+                          </map>
                         </option>
                       </LayoutPositions>
                     </value>
@@ -162,6 +192,27 @@
                               </value>
                             </entry>
                             <entry key="action_main_to_search">
+                              <value>
+                                <LayoutPositions />
+                              </value>
+                            </entry>
+                          </map>
+                        </option>
+                      </LayoutPositions>
+                    </value>
+                  </entry>
+                  <entry key="register">
+                    <value>
+                      <LayoutPositions>
+                        <option name="myPosition">
+                          <Point>
+                            <option name="x" value="765" />
+                            <option name="y" value="-1272" />
+                          </Point>
+                        </option>
+                        <option name="myPositions">
+                          <map>
+                            <entry key="action_register_to_emailCheck">
                               <value>
                                 <LayoutPositions />
                               </value>

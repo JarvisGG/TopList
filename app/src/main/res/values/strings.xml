@@ -32,5 +32,15 @@
     <string name="search_hint">搜索</string>
     <string name="no_search_results">无结果 \n“%1$s”</string>
 
+    <string name="register_page_password_requirement">10-256 位，包括大小写、数字和特殊符号</string>
+    <string name="email_code">Email Code</string>
+
+    <string name="send">Send</string>
+    <string name="resend">ReSend</string>
+    <string name="resend_prefix">Resend after</string>
+    <string name="resend_suffix">seconds</string>
+    <string name="security_check">Security Check</string>
+
+
 
 </resources>

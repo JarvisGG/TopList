@@ -15,7 +15,7 @@ import com.topList.android.api.NetResult
 import com.topList.android.api.model.State
 import com.topList.android.base.ui.BasePagingFragment
 import com.topList.android.ui.LOADING
-import com.topList.android.ui.PlaceHolderFragmentDirections
+import com.topList.android.ui.host.PlaceHolderFragmentDirections
 import com.topList.android.ui.detail.DetailFragment
 import com.topList.android.ui.feed.domain.FeedRemoteDataSource
 import com.topList.android.ui.feed.domain.FeedRepository

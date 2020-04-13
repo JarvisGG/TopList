@@ -8,7 +8,7 @@
 
     <fragment
         android:id="@+id/placeHolder"
-        android:name="com.topList.android.ui.PlaceHolderFragment"
+        android:name="com.topList.android.ui.host.PlaceHolderFragment"
         android:label="placeHolder">
 
         <action
@@ -113,6 +113,43 @@
         android:id="@+id/login"
         android:name="com.topList.android.ui.account.login.LoginFragment"
         android:label="login"
-        tools:layout="@layout/fragment_login" />
+        tools:layout="@layout/fragment_login" >
+
+        <action
+            android:id="@+id/action_login_to_register"
+            app:destination="@id/register"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@anim/nav_default_exit_anim"
+            app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+            app:popExitAnim="@anim/nav_default_pop_exit_anim"/>
+    </fragment>
+
+    <fragment
+        android:id="@+id/register"
+        android:name="com.topList.android.ui.account.register.RegisterFragment"
+        android:label="fragment_register"
+        tools:layout="@layout/fragment_register" >
+
+        <action
+            android:id="@+id/action_register_to_emailCheck"
+            app:destination="@id/emailCheck" />
+
+    </fragment>
+
+    <sheet
+        android:id="@+id/emailCheck"
+        android:name="com.topList.android.EmailCheckFragment"
+        android:label="fragment_email_check"
+        tools:layout="@layout/fragment_email_check" >
+
+        <action
+            android:id="@+id/action_emailCheck_to_login"
+            app:destination="@id/login"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@anim/nav_default_exit_anim"
+            app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+            app:popExitAnim="@anim/nav_default_pop_exit_anim"/>
+
+    </sheet>
 
 </navigation>

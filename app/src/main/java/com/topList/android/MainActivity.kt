@@ -1,6 +1,7 @@
 package com.topList.android
 
 import android.os.Bundle
+import com.topList.android.utils.AndroidBug5497Workaround
 import com.topList.theme.base.ui.ThemeActivity
 
 class MainActivity : ThemeActivity() {
@@ -8,6 +9,7 @@ class MainActivity : ThemeActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+        AndroidBug5497Workaround.assistActivity(this)
     }
 
 //    override fun onCreateOptionsMenu(menu: Menu): Boolean {

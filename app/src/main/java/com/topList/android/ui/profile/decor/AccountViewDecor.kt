@@ -8,7 +8,7 @@ import com.topList.android.api.model.People
 import com.topList.android.base.BaseDecor
 import com.topList.android.base.IDataRender
 import com.topList.android.base.ui.BaseFragment
-import com.topList.android.ui.PlaceHolderFragmentDirections
+import com.topList.android.ui.host.PlaceHolderFragmentDirections
 
 /**
  * @author yyf

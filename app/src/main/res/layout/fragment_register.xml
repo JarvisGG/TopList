@@ -36,7 +36,7 @@
             <TextView
                 android:id="@+id/tvTitle"
                 style="@style/RegisterTitleTextView"
-                android:text="Login"
+                android:text="Register"
                 app:layout_constraintTop_toTopOf="parent"/>
 
             <com.topList.android.ui.widget.TitleEditText
@@ -54,49 +54,27 @@
                 app:layout_constraintTop_toBottomOf="@id/etEmail"
                 app:title="Passward"/>
 
+            <com.topList.android.ui.widget.TitleEditText
+                android:id="@+id/etNick"
+                style="@style/RegisterItem"
+                app:editHint="Enter Your Password"
+                app:layout_constraintTop_toBottomOf="@id/etPwd"
+                app:title="Name"/>
+
             <Button
-                android:id="@+id/btnLogin"
+                android:id="@+id/btnRegister"
                 style="@style/BlueButton"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="32dp"
-                android:text="login"
+                android:text="Register"
                 android:textColor="@color/GBK99"
                 app:layout_constraintEnd_toEndOf="@id/tvTitle"
                 app:layout_constraintStart_toStartOf="@id/tvTitle"
-                app:layout_constraintTop_toBottomOf="@id/etPwd"/>
-
-            <TextView
-                android:id="@+id/tvForgetPwd"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginEnd="8dp"
-                android:layout_marginTop="12dp"
-                android:paddingBottom="12dp"
-                android:paddingTop="12dp"
-                android:text="忘记密码？"
-                android:textColor="@color/GBL01A"
-                android:textSize="14sp"
-                app:layout_constraintStart_toStartOf="@id/btnLogin"
-                app:layout_constraintTop_toBottomOf="@id/btnLogin"/>
+                app:layout_constraintTop_toBottomOf="@id/etNick"/>
 
         </androidx.constraintlayout.widget.ConstraintLayout>
     </ScrollView>
-
-    <TextView
-        android:id="@+id/tvRegister"
-        style="@style/SingleLine"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="240dp"
-        android:paddingBottom="40dp"
-        android:paddingStart="40dp"
-        android:paddingTop="12dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        android:text="Need an Account? Register"
-        />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

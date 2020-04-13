@@ -12,8 +12,6 @@ import android.view.Window
 import android.view.WindowManager
 import androidx.annotation.NonNull
 import androidx.annotation.Nullable
-import androidx.annotation.RequiresApi
-import androidx.core.view.ViewCompat
 import com.topList.theme.ThemeManager
 import java.lang.reflect.Field
 import java.lang.reflect.Method
@@ -43,9 +41,7 @@ object StatusBarUtil {
         val contentView =
             activity.window.findViewById<ViewGroup>(Window.ID_ANDROID_CONTENT)
         val contentChild = contentView.getChildAt(0)
-        if (contentChild != null) {
-            ViewCompat.setFitsSystemWindows(contentChild, false)
-        }
+        contentChild?.fitsSystemWindows = true
     }
 
     /**

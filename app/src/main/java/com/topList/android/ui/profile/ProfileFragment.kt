@@ -9,7 +9,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.topList.android.R
 import com.topList.android.api.model.People
 import com.topList.android.base.ui.BaseFragment
-import com.topList.android.ui.PlaceHolderFragmentDirections
+import com.topList.android.ui.host.PlaceHolderFragmentDirections
 import com.topList.android.ui.profile.ProfileItem.*
 import com.topList.android.ui.profile.decor.AccountViewDecor
 import com.topList.android.ui.profile.holder.ItemHolder

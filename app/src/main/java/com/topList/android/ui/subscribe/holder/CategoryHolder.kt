@@ -8,7 +8,6 @@ import com.zhihu.android.sugaradapter.Layout
 import com.zhihu.android.sugaradapter.SugarHolder
 import kotlinx.android.extensions.LayoutContainer
 import kotlinx.android.synthetic.main.category_item.*
-import org.jetbrains.anko.textColor
 
 @Layout(R2.layout.category_item)
 class CategoryHolder(
@@ -17,10 +16,10 @@ class CategoryHolder(
 
     override fun onBindData(data: CategoryItem) {
         category.text = data.name
-        category.textColor = if (data.check) {
+        category.setTextColor(if (data.check) {
             context.getColor(R.color.GBK02A)
         } else {
             context.getColor(R.color.GBK04A)
-        }
+        })
     }
 }

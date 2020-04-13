@@ -6,7 +6,6 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.coordinatorlayout.widget.CoordinatorLayout
 import androidx.navigation.NavController
-import androidx.navigation.fragment.NavHostFragment
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.topList.android.R
 import com.topList.android.base.ui.BaseFragment
@@ -23,7 +22,7 @@ class HostFragment : BaseFragment() {
      * overlayFragment 的 host
      */
     private val overlayFragment by lazy {
-        NavHostFragment.create(R.navigation.host)
+        HostNavFragment.create(R.navigation.host)
     }
 
     private val delegate: IMainDelegate by lazy {
@@ -72,13 +71,4 @@ class HostFragment : BaseFragment() {
     }
 
     override fun isSystemUiFullscreen() = true
-
-//    override fun onCreateNavController(navController: NavController) {
-//        super.onCreateNavController(navController)
-//        navController.navigatorProvider += MainPageFragmentNavigator(requireContext(), childFragmentManager, R.id.hostPlace)
-//    }
-
-//    override fun createFragmentNavigator() = FragmentNavigator(requireContext(), childFragmentManager, R.id.hostPlace)
-
-
 }
