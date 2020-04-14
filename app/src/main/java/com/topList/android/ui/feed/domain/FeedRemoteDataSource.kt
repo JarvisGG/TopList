@@ -28,16 +28,4 @@ class FeedRemoteDataSource  (
         }
     }
 
-    private inline fun getResult(
-        response: Response<State<List<FeedItem>>>,
-        onError: () -> NetResult.Error
-    ): NetResult<State<List<FeedItem>>> {
-        if (response.isSuccessful) {
-            val body = response.body()
-            if (body != null) {
-                return NetResult.Success(body)
-            }
-        }
-        return onError.invoke()
-    }
 }

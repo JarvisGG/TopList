@@ -4,20 +4,39 @@ import android.os.Bundle
 import android.text.Editable
 import android.text.InputType
 import android.text.TextWatcher
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.viewModels
+import androidx.lifecycle.Observer
+import androidx.lifecycle.observe
 import androidx.navigation.fragment.findNavController
+import com.topList.android.BuildConfig
 import com.topList.android.R
+import com.topList.android.api.Apis
+import com.topList.android.api.NetResult
 import com.topList.android.base.ui.BaseFragment
-import com.topList.android.ui.widget.TitleEditText
+import com.topList.android.ui.account.register.domain.RegisterUseCase
+import com.topList.android.ui.account.register.domain.VerifyUseCase
+import com.topList.android.ui.account.verify.VerifyCode
 import com.topList.android.utils.CommonToast
 import com.topList.android.utils.FormatChecker
+import com.topList.android.utils.RxBus
+import com.uber.autodispose.android.lifecycle.AndroidLifecycleScopeProvider
+import com.uber.autodispose.autoDisposable
+import io.reactivex.android.schedulers.AndroidSchedulers
+import io.reactivex.schedulers.Schedulers
 import kotlinx.android.synthetic.main.fragment_register.*
 import kotlinx.android.synthetic.main.widget_title_edit_text.view.*
 
 class RegisterFragment : BaseFragment() {
+
+    private val vm: RegisterViewModel by viewModels({this}, {
+        RegisterViewModelFactory(
+            VerifyUseCase(Apis.account),
+            RegisterUseCase(Apis.account)
+        )
+    })
 
     private val textWatcher = object : TextWatcher {
         override fun afterTextChanged(s: Editable?) {
@@ -44,6 +63,8 @@ class RegisterFragment : BaseFragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         initView()
+        initData()
+        injectDemo()
     }
 
     private fun initView() {
@@ -56,14 +77,59 @@ class RegisterFragment : BaseFragment() {
         etPwd.etContent.onFocusChangeListener = View.OnFocusChangeListener { v, hasFocus ->
             originalListener.onFocusChange(v, hasFocus)
             if (!hasFocus) {
-                if (v is TitleEditText && v.title.isNotEmpty()) {
+                if (etPwd.text.isNotEmpty()) {
                     validatePassword()
                 }
+
+
+
             }
         }
         btnRegister.setOnClickListener {
+            vm.sendCode(etEmail.text).observe(viewLifecycleOwner, Observer {  })
             findNavController().navigate(RegisterFragmentDirections.actionRegisterToEmailCheck())
         }
+
+        registerStateUpdate()
+    }
+
+    private fun initData() {
+        RxBus.instance.toObservable(VerifyCode::class.java)
+            .subscribeOn(Schedulers.io())
+            .observeOn(AndroidSchedulers.mainThread())
+            .autoDisposable(AndroidLifecycleScopeProvider.from(this))
+            .subscribe {
+                register(it.code)
+            }
+    }
+
+    private fun injectDemo() {
+        if (BuildConfig.DEBUG) {
+            etEmail.editText.setText("821388334@qq.com")
+            etPwd.editText.setText("Yangyufei4130+qq")
+            etNick.editText.setText("Jarvis")
+            validatePassword()
+            registerStateUpdate()
+        }
+    }
+
+    private fun register(code: String) {
+        vm.register(
+            etNick.text,
+            etEmail.text,
+            code,
+            etPwd.text
+        ).observe(viewLifecycleOwner, Observer {
+            when (it) {
+                is NetResult.Success<*> -> {
+                    findNavController().navigateUp()
+                }
+                is NetResult.Error -> {
+                    val errorMsg = it.exception.message ?: "error"
+                    CommonToast.Builder(CommonToast.PresetIcon.ALERT, errorMsg).build().show(requireActivity())
+                }
+            }
+        })
     }
 
 
@@ -88,3 +154,5 @@ class RegisterFragment : BaseFragment() {
     }
 
 }
+
+

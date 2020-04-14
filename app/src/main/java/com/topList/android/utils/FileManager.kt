@@ -1,5 +1,8 @@
 package com.topList.android.utils
 
+import androidx.annotation.WorkerThread
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.withContext
 import kotlinx.serialization.*
 import kotlinx.serialization.json.Json
 import kotlinx.serialization.json.JsonConfiguration
@@ -22,54 +25,64 @@ open class FileManager(
     /**
      * 保存数据
      */
-    inline fun <reified T : Any> save(key: String, value: T?): Boolean {
+    @WorkerThread
+    suspend inline fun <reified T : Any> save(key: String, value: T?): Boolean {
         val type = typeTokenOf<T>()
         return save(key, obtainSerializer(type), value)
     }
 
-    fun <T> save(key: String, serializer: SerializationStrategy<T>, value: T?): Boolean {
-        val file = File(rootDir, key)
-        if (file.exists()) {
-            if (file.isDirectory) {
-                return false
+    @WorkerThread
+    suspend fun <T> save(key: String, serializer: SerializationStrategy<T>, value: T?) =
+        withContext(Dispatchers.IO) {
+            val file = File(rootDir, key)
+            var res = true
+            if (file.exists()) {
+                if (file.isDirectory) {
+                    res = false
+                }
+            } else {
+                file.parentFile.mkdirs()
+                file.createNewFile()
             }
-        } else {
-            file.parentFile.mkdirs()
-            file.createNewFile()
-        }
 
-        if (value == null) {
-            return file.delete()
+            res = try {
+                if (res && value == null) {
+                    file.delete()
+                } else {
+                    file.writeText(format.dumps(serializer, value!!))
+                    true
+                }
+            } catch (e: Exception) {
+                false
+            }
+            res
         }
-
-        return try {
-            file.writeText(format.dumps(serializer, value))
-            true
-        } catch (e: Exception) {
-            false
-        }
-    }
 
     /**
      * 读取数据
      */
-    inline fun <reified T : Any> load(key: String): T? {
+    @WorkerThread
+    suspend inline fun <reified T : Any> load(key: String): T? {
         val type = typeTokenOf<T>()
         return load(key, obtainSerializer(type))
     }
 
-    fun <T> load(key: String, deserializer: DeserializationStrategy<T>): T? {
-        val file = File(rootDir, key)
-        if (!file.exists()) {
-            return null
+    @WorkerThread
+    suspend fun <T> load(key: String, deserializer: DeserializationStrategy<T>) =
+        withContext(Dispatchers.IO) {
+            val file = File(rootDir, key)
+            val res: T?
+            res = try {
+                if (!file.exists()) {
+                    null
+                } else {
+                    format.loads(deserializer, file.readText())
+                }
+            } catch (e: Exception) {
+                null
+            }
+            res
         }
-
-        return try {
-            format.loads(deserializer, file.readText())
-        } catch (e: Exception) {
-            null
-        }
-    }
 
 
     /**

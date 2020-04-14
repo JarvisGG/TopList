@@ -11,9 +11,7 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentActivity
 import androidx.navigation.NavController
 import androidx.navigation.findNavController
-import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.topList.android.R
-import com.topList.android.ui.feed.behavior.BottomNavigationBehavior
 import com.topList.android.ui.host.HostFragment
 import com.topList.android.utils.RxBus
 import com.topList.theme.ThemeManager

@@ -112,18 +112,9 @@
                       <LayoutPositions>
                         <option name="myPosition">
                           <Point>
-                            <option name="x" value="1094" />
-                            <option name="y" value="-1017" />
+                            <option name="x" value="1113" />
+                            <option name="y" value="-1000" />
                           </Point>
-                        </option>
-                        <option name="myPositions">
-                          <map>
-                            <entry key="action_emailCheck_to_login2">
-                              <value>
-                                <LayoutPositions />
-                              </value>
-                            </entry>
-                          </map>
                         </option>
                       </LayoutPositions>
                     </value>
@@ -154,8 +145,8 @@
                       <LayoutPositions>
                         <option name="myPosition">
                           <Point>
-                            <option name="x" value="614" />
-                            <option name="y" value="-708" />
+                            <option name="x" value="547" />
+                            <option name="y" value="-1239" />
                           </Point>
                         </option>
                         <option name="myPositions">
@@ -175,8 +166,8 @@
                       <LayoutPositions>
                         <option name="myPosition">
                           <Point>
-                            <option name="x" value="41" />
-                            <option name="y" value="2" />
+                            <option name="x" value="-42" />
+                            <option name="y" value="-381" />
                           </Point>
                         </option>
                         <option name="myPositions">
@@ -206,13 +197,18 @@
                       <LayoutPositions>
                         <option name="myPosition">
                           <Point>
-                            <option name="x" value="765" />
-                            <option name="y" value="-1272" />
+                            <option name="x" value="888" />
+                            <option name="y" value="-1240" />
                           </Point>
                         </option>
                         <option name="myPositions">
                           <map>
                             <entry key="action_register_to_emailCheck">
+                              <value>
+                                <LayoutPositions />
+                              </value>
+                            </entry>
+                            <entry key="action_register_to_login">
                               <value>
                                 <LayoutPositions />
                               </value>

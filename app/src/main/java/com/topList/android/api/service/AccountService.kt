@@ -2,11 +2,9 @@ package com.topList.android.api.service
 
 import com.topList.android.api.model.LoginResult
 import com.topList.android.api.model.State
+import com.topList.android.api.model.VerifyResult
 import retrofit2.Response
-import retrofit2.http.Field
-import retrofit2.http.FormUrlEncoded
-import retrofit2.http.POST
-import retrofit2.http.Query
+import retrofit2.http.*
 
 /**
  * @author yyf
@@ -20,7 +18,7 @@ interface AccountService {
     @FormUrlEncoded
     @POST("URegister")
     suspend fun register(
-        @Field("userName") userName: String,
+        @Field("userName") name: String,
         @Field("email") email: String,
         @Field("code") code: String,
         @Field("pwd") pwd: String
@@ -29,11 +27,10 @@ interface AccountService {
     /**
      * 发送验证码 Email
      */
-    @FormUrlEncoded
-    @POST("UVerifyCode")
-    fun sendEmailCode(
+    @GET("UVerifyCode")
+    suspend fun sendEmailCode(
         @Query("email") email: String
-    ): Response<State<Any>>
+    ): Response<VerifyResult>
 
     /**
      * 登陆

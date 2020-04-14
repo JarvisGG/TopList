@@ -118,10 +118,8 @@
         <action
             android:id="@+id/action_login_to_register"
             app:destination="@id/register"
-            app:enterAnim="@anim/nav_default_enter_anim"
-            app:exitAnim="@anim/nav_default_exit_anim"
-            app:popEnterAnim="@anim/nav_default_pop_enter_anim"
-            app:popExitAnim="@anim/nav_default_pop_exit_anim"/>
+            app:popUpToInclusive="true"
+            app:popUpTo="@id/placeHolder" />
     </fragment>
 
     <fragment
@@ -138,18 +136,9 @@
 
     <sheet
         android:id="@+id/emailCheck"
-        android:name="com.topList.android.EmailCheckFragment"
+        android:name="com.topList.android.ui.account.verify.CodeCheckFragment"
         android:label="fragment_email_check"
-        tools:layout="@layout/fragment_email_check" >
+        tools:layout="@layout/fragment_email_check" />
 
-        <action
-            android:id="@+id/action_emailCheck_to_login"
-            app:destination="@id/login"
-            app:enterAnim="@anim/nav_default_enter_anim"
-            app:exitAnim="@anim/nav_default_exit_anim"
-            app:popEnterAnim="@anim/nav_default_pop_enter_anim"
-            app:popExitAnim="@anim/nav_default_pop_exit_anim"/>
-
-    </sheet>
 
 </navigation>

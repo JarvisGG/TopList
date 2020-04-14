@@ -2,6 +2,7 @@ package com.topList.android.api
 
 import com.jakewharton.retrofit2.converter.kotlinx.serialization.asConverterFactory
 import com.topList.android.BuildConfig
+import com.topList.android.api.service.AccountService
 import com.topList.android.api.service.FeedService
 import com.topList.android.api.service.SearchService
 import com.topList.android.api.service.SubscribeService
@@ -36,7 +37,7 @@ internal object Apis {
             .build()
 
     /**
-     * 所有 Http 接口
+     * Feed 接口
      */
     val feed: FeedService = retrofit.create(FeedService::class.java)
 
@@ -49,4 +50,9 @@ internal object Apis {
      * 订阅接口
      */
     val subscribe: SubscribeService = retrofit.create(SubscribeService::class.java)
+
+    /**
+     * User 接口
+     */
+    val account: AccountService = retrofit.create(AccountService::class.java)
 }

@@ -40,7 +40,8 @@ sealed class NetResult<out T : Any> {
 
 inline fun <T> getResult(
     response: Response<State<T>>,
-    onError: () -> NetResult.Error
+    crossinline onSuccess: (State<T>) -> Unit = {},
+    crossinline onError: () -> NetResult.Error
 ): NetResult<State<T>> {
     if (response.isSuccessful) {
         val body = response.body()

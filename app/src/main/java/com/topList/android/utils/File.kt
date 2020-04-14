@@ -2,6 +2,8 @@ package com.topList.android.utils
 
 import android.content.Context
 import androidx.core.content.ContextCompat
+import com.topList.android.api.model.Token
+import com.topList.android.api.model.User
 
 /**
  * @author yyf
@@ -16,11 +18,11 @@ class Files(
         private const val DIR_ACCOUNT = DIR_ROOT + "account/"
 
         const val TOKEN = DIR_ACCOUNT + "token.json"
-        const val ME = DIR_ACCOUNT + "user.json"
+        const val USER = DIR_ACCOUNT + "user.json"
     }
 
-//    fun saveToken(token: AppToken?) = save(TOKEN, token)
-//    fun loadToken() = load<AppToken>(TOKEN)
-//    fun saveMe(me: Me?) = save(ME, me)
-//    fun loadMe() = load<Me>(ME)
+    suspend fun saveToken(token: Token?) = save(TOKEN, token)
+    suspend fun loadToken() = load<Token>(TOKEN)
+    suspend fun saveMe(user: User?) = save(USER, user)
+    suspend fun loadMe() = load<User>(USER)
 }

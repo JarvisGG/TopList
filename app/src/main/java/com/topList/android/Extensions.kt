@@ -1,4 +1,8 @@
 package com.topList.android
+
+import android.content.Context
+import androidx.fragment.app.Fragment
+
 /**
  * Helper to force a when statement to assert all options are matched in a when statement.
  *
@@ -17,3 +21,6 @@ package com.topList.android
  */
 val <T> T.exhaustive: T
     get() = this
+
+val Context.accountManager get() = (this.applicationContext as App).accountManager
+val Fragment.accountManager get() = this.requireContext().accountManager

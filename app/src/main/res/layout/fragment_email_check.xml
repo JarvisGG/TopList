@@ -33,16 +33,10 @@
         app:layout_constraintEnd_toEndOf="@id/tvDesc"
         app:layout_constraintStart_toStartOf="@id/tvDesc"
         app:layout_constraintTop_toBottomOf="@+id/tvDesc"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginBottom="38dp"
         app:noOfFields="6"/>
 
-    <com.topList.android.ui.widget.CountDownButton
-        android:id="@+id/btnSend"
-        style="@style/ResendButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
-        app:layout_constraintEnd_toEndOf="@id/pfCode"
-        app:layout_constraintTop_toBottomOf="@id/pfCode"/>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -12,6 +12,7 @@ import com.topList.android.base.ui.BaseFragment
 /**
  * @author yyf
  * @since 03-23-2020
+ *
  */
 class SplashFragment : BaseFragment() {
     private val vm: SplashViewModel by viewModels()

@@ -1,19 +1,21 @@
 package com.topList.android.ui.splash
 
-import androidx.lifecycle.ViewModel
+import android.app.Application
+import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.liveData
+import com.topList.android.accountManager
 import kotlinx.coroutines.delay
 
 /**
  * @author yyf
  * @since 03-23-2020
  */
-object EMPTY
-
-class SplashViewModel : ViewModel() {
+class SplashViewModel(
+    application: Application
+) : AndroidViewModel(application) {
 
     val data = liveData {
         delay(1000)
-        emit(EMPTY)
+        emit(application.accountManager.restore())
     }
 }
