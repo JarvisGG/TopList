@@ -64,7 +64,9 @@ class RegisterFragment : BaseFragment() {
         super.onViewCreated(view, savedInstanceState)
         initView()
         initData()
-        injectDemo()
+        if (BuildConfig.DEBUG) {
+            injectDemo()
+        }
     }
 
     private fun initView() {
@@ -104,13 +106,11 @@ class RegisterFragment : BaseFragment() {
     }
 
     private fun injectDemo() {
-        if (BuildConfig.DEBUG) {
-            etEmail.editText.setText("821388334@qq.com")
-            etPwd.editText.setText("Yangyufei4130+qq")
-            etNick.editText.setText("Jarvis")
-            validatePassword()
-            registerStateUpdate()
-        }
+        etEmail.editText.setText("821388334@qq.com")
+        etPwd.editText.setText("Yangyufei4130+qq")
+        etNick.editText.setText("Jarvis")
+        validatePassword()
+        registerStateUpdate()
     }
 
     private fun register(code: String) {
