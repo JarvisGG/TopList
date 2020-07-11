@@ -1,8 +1,10 @@
 package com.topList.android.ui.account
 
+import androidx.lifecycle.LifecycleCoroutineScope
 import com.topList.android.api.model.People
 import com.topList.android.api.model.Token
 import com.topList.android.utils.Files
+import kotlinx.coroutines.launch
 
 /**
  * @author yyf
@@ -16,7 +18,15 @@ class AccountManager(private val files: Files) {
 
     fun getToken(): Token? = token
 
-    suspend fun syncState(token: Token, user: People) {
+    fun isGuest(): Boolean = getUser() == null
+
+    fun logout(scope: LifecycleCoroutineScope) {
+        scope.launch {
+            syncState(null, null)
+        }
+    }
+
+    suspend fun syncState(token: Token?, user: People?) {
         files.saveToken(token)
         files.saveMe(user)
     }

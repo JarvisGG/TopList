@@ -8,6 +8,8 @@
     <color name="black_overlay">#66000000</color>
     <color name="black">#000000</color>
     <color name="background_dark">#ff333333</color>
+    <color name="divider">#E8E8ED</color>
+
 
 
     <color name="dark_icon">#99000000</color> <!-- 60% black-->

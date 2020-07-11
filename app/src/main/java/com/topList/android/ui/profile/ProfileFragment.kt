@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
+import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.topList.android.R
@@ -15,9 +16,11 @@ import com.topList.android.ui.common.CommonViewModel
 import com.topList.android.ui.host.PlaceHolderFragmentDirections
 import com.topList.android.ui.profile.ProfileItem.*
 import com.topList.android.ui.profile.decor.AccountViewDecor
+import com.topList.android.ui.profile.holder.ItemData
 import com.topList.android.ui.profile.holder.ItemHolder
 import com.topList.android.ui.profile.holder.LabelHolder
 import com.topList.android.ui.widget.CustomItemDecoration
+import com.topList.android.utils.CommonAlertDialog
 import com.toplist.android.annotation.Tab
 import com.zhihu.android.sugaradapter.SugarAdapter
 import kotlinx.android.synthetic.main.fragment_profile.*
@@ -31,14 +34,27 @@ import kotlinx.android.synthetic.main.fragment_profile.*
     iconRes = R.drawable.ic_profile,
     position = 3
 )
-class ProfileFragment : BaseFragment() {
+class ProfileFragment : BaseFragment(), CommonAlertDialog.Listener {
+
+    companion object {
+        const val TAG_DIALOG_LOG_OUT = "TAG_DIALOG_LOG_OUT"
+    }
+
+    private val settingList by lazy {
+        if (accountManager.isGuest()) {
+            sProfileList
+        } else {
+            sLoginList
+        }
+    }
 
     private val adapter by lazy {
-        SugarAdapter.Builder.with(sProfileList)
+        SugarAdapter.Builder.with(settingList)
             .add(ItemHolder::class.java) { holder ->
                 holder.containerView.setOnClickListener {
                     when(holder.data.data) {
                         HISTORY -> findOverlayNavController()?.navigate(PlaceHolderFragmentDirections.actionMainToHistory())
+                        LOGOUT -> logout()
                     }
                 }
             }
@@ -88,10 +104,37 @@ class ProfileFragment : BaseFragment() {
     private fun initVM() {
         cvm.accountState.observe(viewLifecycleOwner, Observer {
             accountDecor.renderData(it)
+            settingList.add(3, ItemData(LOGOUT))
+            adapter.notifyItemInserted(3)
+            adapter.notifyDataSetChanged()
         })
     }
 
+    private fun logout() {
+        CommonAlertDialog.withTitle(
+            context!!,
+            title = "确定退出登录吗？",
+            action2 = CommonAlertDialog.createPositiveStr(context!!, getString(R.string.confirm))
+        ).show(childFragmentManager, TAG_DIALOG_LOG_OUT)
+
+    }
 
 
     override fun isSystemUiFullscreen() = true
+
+    override fun onActionClick(dialog: CommonAlertDialog, actionIndex: Int) {
+        if (dialog.tag == TAG_DIALOG_LOG_OUT) {
+            dialog.dismissAllowingStateLoss()
+            when (actionIndex) {
+                2 -> {
+                    dialog.dismissAllowingStateLoss()
+                    accountManager.logout(lifecycleScope)
+                    accountDecor.renderData(null)
+                    settingList.removeAt(3)
+                    adapter.notifyItemRemoved(3)
+                    adapter.notifyDataSetChanged()
+                }
+            }
+        }
+    }
 }

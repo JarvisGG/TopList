@@ -40,7 +40,8 @@
     <string name="resend_prefix">Resend after</string>
     <string name="resend_suffix">seconds</string>
     <string name="security_check">Security Check</string>
-
+    <string name="cancel">cancel</string>
+    <string name="confirm">confirm</string>
 
 
 </resources>

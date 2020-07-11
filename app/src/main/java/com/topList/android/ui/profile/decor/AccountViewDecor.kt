@@ -9,6 +9,7 @@ import com.topList.android.base.BaseDecor
 import com.topList.android.base.IDataRender
 import com.topList.android.base.ui.BaseFragment
 import com.topList.android.ui.host.PlaceHolderFragmentDirections
+import com.topList.theme.base.widget.TImageView
 
 /**
  * @author yyf
@@ -45,6 +46,8 @@ class AccountViewDecor(
         root.setOnClickListener {
 
         }
+        val gender = root.findViewById<TImageView>(R.id.user_gender)
+        gender.setImageResource(R.drawable.profile_ic_profile_female_normal)
     }
 
 
