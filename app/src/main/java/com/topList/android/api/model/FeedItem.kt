@@ -20,5 +20,6 @@ data class FeedItem(
     @SerialName("Url") val url: String,
     @SerialName("id") val id: String,
     @SerialName("tid") val tid: String,
-    @SerialName("type") val type: String
+    @SerialName("type") val type: String,
+    @SerialName("sort") val sort: String
 ) : Parcelable

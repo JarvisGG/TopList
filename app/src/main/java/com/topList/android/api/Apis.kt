@@ -23,6 +23,7 @@ internal object Apis {
 
     val MEDIA_TYPE = "application/json; charset=utf-8".toMediaType()
     val json: StringFormat = Json(JsonConfiguration.Stable)
+
     private val retrofit: Retrofit =
         Retrofit.Builder()
             .baseUrl("https://www.tophub.fun:8888/")
@@ -31,8 +32,13 @@ internal object Apis {
                 .writeTimeout(30, TimeUnit.SECONDS)
                 .readTimeout(30, TimeUnit.SECONDS)
                 .addInterceptor(HttpLoggingInterceptor().apply {
-                    level = if (BuildConfig.DEBUG) HttpLoggingInterceptor.Level.BODY else HttpLoggingInterceptor.Level.NONE
-                }).build()
+                    level = if (BuildConfig.DEBUG)
+                        HttpLoggingInterceptor.Level.BODY
+                    else
+                        HttpLoggingInterceptor.Level.NONE
+                })
+                .addInterceptor(BaseInterceptor())
+                .build()
             ).addConverterFactory(json.asConverterFactory(MEDIA_TYPE))
             .build()
 

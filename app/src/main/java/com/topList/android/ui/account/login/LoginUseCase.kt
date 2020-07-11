@@ -6,7 +6,6 @@ import com.topList.android.api.getResult
 import com.topList.android.api.model.LoginResult
 import com.topList.android.api.model.State
 import com.topList.android.api.model.Token
-import com.topList.android.api.model.User
 import com.topList.android.api.service.AccountService
 import java.io.IOException
 
@@ -18,9 +17,7 @@ class LoginUseCase (
     val service: AccountService
 ) {
     suspend operator fun invoke(
-        name: String,
         email: String,
-        code: String,
         password: String
     ):  NetResult<State<LoginResult>> {
 

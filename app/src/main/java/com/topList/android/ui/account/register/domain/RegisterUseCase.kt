@@ -1,12 +1,9 @@
 package com.topList.android.ui.account.register.domain
 
-import com.topList.android.App
 import com.topList.android.api.NetResult
 import com.topList.android.api.getResult
 import com.topList.android.api.model.LoginResult
 import com.topList.android.api.model.State
-import com.topList.android.api.model.Token
-import com.topList.android.api.model.User
 import com.topList.android.api.service.AccountService
 import java.io.IOException
 

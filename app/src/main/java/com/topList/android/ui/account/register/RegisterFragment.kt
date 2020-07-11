@@ -7,6 +7,7 @@ import android.text.TextWatcher
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
 import androidx.lifecycle.observe
@@ -15,10 +16,14 @@ import com.topList.android.BuildConfig
 import com.topList.android.R
 import com.topList.android.api.Apis
 import com.topList.android.api.NetResult
+import com.topList.android.api.model.LoginResult
+import com.topList.android.api.model.State
+import com.topList.android.api.model.transform2People
 import com.topList.android.base.ui.BaseFragment
 import com.topList.android.ui.account.register.domain.RegisterUseCase
 import com.topList.android.ui.account.register.domain.VerifyUseCase
 import com.topList.android.ui.account.verify.VerifyCode
+import com.topList.android.ui.common.CommonViewModel
 import com.topList.android.utils.CommonToast
 import com.topList.android.utils.FormatChecker
 import com.topList.android.utils.RxBus
@@ -37,6 +42,8 @@ class RegisterFragment : BaseFragment() {
             RegisterUseCase(Apis.account)
         )
     })
+
+    private val cvm: CommonViewModel by viewModels(ownerProducer = { requireActivity() })
 
     private val textWatcher = object : TextWatcher {
         override fun afterTextChanged(s: Editable?) {
@@ -117,11 +124,14 @@ class RegisterFragment : BaseFragment() {
         vm.register(
             etNick.text,
             etEmail.text,
-            code,
+            "2141",
             etPwd.text
         ).observe(viewLifecycleOwner, Observer {
             when (it) {
                 is NetResult.Success<*> -> {
+                    it.data as State<LoginResult>
+                    cvm.accountState.postValue(it.data.data.transform2People())
+                    Toast.makeText(requireActivity(), it.data.message, Toast.LENGTH_SHORT).show()
                     findNavController().navigateUp()
                 }
                 is NetResult.Error -> {

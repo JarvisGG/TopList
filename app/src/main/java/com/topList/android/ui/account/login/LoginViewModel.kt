@@ -1,4 +1,4 @@
-package com.topList.android.ui.account.register
+package com.topList.android.ui.account.login
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
@@ -6,30 +6,21 @@ import androidx.lifecycle.liveData
 import com.topList.android.App
 import com.topList.android.api.NetResult
 import com.topList.android.api.model.*
-import com.topList.android.ui.account.register.domain.RegisterUseCase
-import com.topList.android.ui.account.register.domain.VerifyUseCase
 
 /**
  * @author yyf
- * @since 04-11-2020
+ * @since 07-09-2020
  */
-class RegisterViewModel(
-    private val verifyUseCase: VerifyUseCase,
-    private val registerUseCase: RegisterUseCase
+class LoginViewModel(
+    private val loginUseCase: LoginUseCase
 ) : ViewModel() {
 
-    fun sendCode(code: String) = liveData {
-        emit(verifyUseCase(code))
-    }
-
-    fun register(
-        name: String,
+    fun login(
         email: String,
-        code: String,
         password: String
     ) = liveData {
-        val res = registerUseCase(
-            name, email, code, password
+        val res = loginUseCase(
+            email, password
         )
         when (res) {
             is NetResult.Success<*> -> {
@@ -47,12 +38,11 @@ class RegisterViewModel(
     }
 }
 
-class RegisterViewModelFactory(
-    private val verifyUseCase: VerifyUseCase,
-    private val registerUseCase: RegisterUseCase
+class LoginViewModelFactory(
+    private val loginUseCase: LoginUseCase
 ): ViewModelProvider.Factory {
     override fun <T : ViewModel?> create(modelClass: Class<T>): T {
-        return RegisterViewModel(verifyUseCase, registerUseCase) as T
+        return LoginViewModel(loginUseCase) as T
     }
 
 }

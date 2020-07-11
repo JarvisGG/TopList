@@ -1,9 +1,8 @@
 package com.topList.android.ui.account
 
+import com.topList.android.api.model.People
 import com.topList.android.api.model.Token
-import com.topList.android.api.model.User
 import com.topList.android.utils.Files
-import io.reactivex.Completable
 
 /**
  * @author yyf
@@ -11,13 +10,13 @@ import io.reactivex.Completable
  */
 class AccountManager(private val files: Files) {
     private var token: Token? = null
-    private var user: User? = null
+    private var user: People? = null
 
-    fun getUser(): User? = user
+    fun getUser(): People? = user
 
     fun getToken(): Token? = token
 
-    suspend fun syncState(token: Token, user: User) {
+    suspend fun syncState(token: Token, user: People) {
         files.saveToken(token)
         files.saveMe(user)
     }
@@ -26,7 +25,7 @@ class AccountManager(private val files: Files) {
     /**
      * Splash 页用到。恢复登录状态
      */
-    suspend fun restore(): Pair<Token?, User?> {
+    suspend fun restore(): Pair<Token?, People?> {
         token = files.loadToken()
         user = files.loadMe()
         return token to user

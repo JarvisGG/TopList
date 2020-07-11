@@ -2,8 +2,8 @@ package com.topList.android.utils
 
 import android.content.Context
 import androidx.core.content.ContextCompat
+import com.topList.android.api.model.People
 import com.topList.android.api.model.Token
-import com.topList.android.api.model.User
 
 /**
  * @author yyf
@@ -23,6 +23,6 @@ class Files(
 
     suspend fun saveToken(token: Token?) = save(TOKEN, token)
     suspend fun loadToken() = load<Token>(TOKEN)
-    suspend fun saveMe(user: User?) = save(USER, user)
-    suspend fun loadMe() = load<User>(USER)
+    suspend fun saveMe(user: People?) = save(USER, user)
+    suspend fun loadMe() = load<People>(USER)
 }

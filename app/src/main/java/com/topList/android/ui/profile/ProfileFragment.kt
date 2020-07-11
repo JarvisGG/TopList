@@ -4,11 +4,14 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.viewModels
+import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.topList.android.R
-import com.topList.android.api.model.People
+import com.topList.android.accountManager
 import com.topList.android.base.ui.BaseFragment
+import com.topList.android.ui.common.CommonViewModel
 import com.topList.android.ui.host.PlaceHolderFragmentDirections
 import com.topList.android.ui.profile.ProfileItem.*
 import com.topList.android.ui.profile.decor.AccountViewDecor
@@ -38,7 +41,6 @@ class ProfileFragment : BaseFragment() {
                         HISTORY -> findOverlayNavController()?.navigate(PlaceHolderFragmentDirections.actionMainToHistory())
                     }
                 }
-
             }
             .add(LabelHolder::class.java)
             .build()
@@ -50,6 +52,8 @@ class ProfileFragment : BaseFragment() {
 
     private lateinit var accountDecor: AccountViewDecor
 
+    private val cvm: CommonViewModel by viewModels(ownerProducer = { requireActivity() })
+
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         return inflater.inflate(R.layout.fragment_profile, container, false)
     }
@@ -57,16 +61,13 @@ class ProfileFragment : BaseFragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         initView()
+        initVM()
+        initData()
     }
 
     private fun initView() {
 
         accountDecor = AccountViewDecor(av_header, this)
-//        accountDecor.renderData(People(
-//            img = "https://tvax1.sinaimg.cn/crop.0.0.1080.1080.180/c0f7eb44ly8g6p5etd3etj20u00u0gnl.jpg?KID=imgbed,tva&Expires=1586513108&ssig=wFUN77bAQD",
-//            nickname = "一条漂泊的咸鱼"
-//        ))
-        accountDecor.renderData(null)
 
         rv_profile.run {
             adapter = this@ProfileFragment.adapter
@@ -74,6 +75,23 @@ class ProfileFragment : BaseFragment() {
             addItemDecoration(CustomItemDecoration(context))
         }
     }
+
+    /**
+     * 渲染头像相关数据
+     */
+    private fun initData() {
+        accountManager.getUser()?.run {
+            accountDecor.renderData(this)
+        } ?: accountDecor.renderData(null)
+    }
+
+    private fun initVM() {
+        cvm.accountState.observe(viewLifecycleOwner, Observer {
+            accountDecor.renderData(it)
+        })
+    }
+
+
 
     override fun isSystemUiFullscreen() = true
 }

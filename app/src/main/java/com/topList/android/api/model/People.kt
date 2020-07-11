@@ -24,7 +24,7 @@ data class People(
     @SerialName("commentNum") val commentNum: String = "",
     @SerialName("experience") val experience: String = "",
     @SerialName("history") val history: String = "",
-    @SerialName("img") val img: String = "",
+    @SerialName("img") var img: String = "",
     @SerialName("level") val level: String = "",
     @SerialName("levelName") val levelName: String = "",
     @SerialName("levelNext") val levelNext: String = "",
@@ -32,8 +32,9 @@ data class People(
     @SerialName("loginDays") val loginDays: String = "",
     @SerialName("loginFishBall") val loginFishBall: String = "",
     @SerialName("message_num") val messageNum: String = "",
-    @SerialName("nickname") val nickname: String = "",
+    @SerialName("nickname") var nickname: String = "",
     @SerialName("only_follow_list") val onlyFollowList: String = "",
     @SerialName("sex") val sex: String = "",
     @SerialName("signature") val signature: String = ""
 ) : Parcelable
+

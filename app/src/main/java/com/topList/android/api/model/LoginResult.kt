@@ -13,6 +13,12 @@ import kotlinx.serialization.Serializable
 @Serializable
 data class LoginResult(
     @SerialName("img") val avatar: String,
-    @SerialName("nickname") val nickname: String,
+    @SerialName("nickname") val name: String,
     @SerialName("token") val token: String
 ) : Parcelable
+
+fun LoginResult.transform2People() = People().apply {
+    img = avatar
+    nickname = name
+}
+
