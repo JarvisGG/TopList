@@ -26,7 +26,6 @@
         android:layout_height="0dp"
         android:fillViewport="true"
         android:layout_marginTop="?android:actionBarSize"
-        app:layout_constraintBottom_toTopOf="@+id/tvRegister"
         app:layout_constraintTop_toTopOf="parent">
 
         <androidx.constraintlayout.widget.ConstraintLayout

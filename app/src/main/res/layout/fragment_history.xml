@@ -17,9 +17,8 @@
         app:tintColor="@color/GBK02A"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toTopOf="@+id/inboxSwipe" />
-
+        app:layout_constraintTop_toTopOf="parent" />
+;;'
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rvHistory"
         android:layout_width="0dp"
