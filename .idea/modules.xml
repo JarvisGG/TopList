@@ -2,8 +2,15 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/LearnProjects-TopList-app.iml" filepath="$PROJECT_DIR$/.idea/modules/app/LearnProjects-TopList-app.iml" group="TopList/app" />
       <module fileurl="file://$PROJECT_DIR$/TopList.iml" filepath="$PROJECT_DIR$/TopList.iml" group="TopList" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/annotation/TopList-annotation.iml" filepath="$PROJECT_DIR$/.idea/modules/annotation/TopList-annotation.iml" group="TopList/annotation" />
       <module fileurl="file://$PROJECT_DIR$/app/TopList-app.iml" filepath="$PROJECT_DIR$/app/TopList-app.iml" group="TopList/app" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/compiler/TopList-compiler.iml" filepath="$PROJECT_DIR$/.idea/modules/compiler/TopList-compiler.iml" group="TopList/compiler" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/inboxrecyclerview/inboxrecyclerview/TopList-inboxrecyclerview.iml" filepath="$PROJECT_DIR$/.idea/modules/inboxrecyclerview/inboxrecyclerview/TopList-inboxrecyclerview.iml" group="TopList/inboxrecyclerview" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/sugaradapter/sugaradapter/TopList-sugaradapter.iml" filepath="$PROJECT_DIR$/.idea/modules/sugaradapter/sugaradapter/TopList-sugaradapter.iml" group="TopList/sugaradapter" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/sugaradapter/sugaradapter-annotation/TopList-sugaradapter-annotation.iml" filepath="$PROJECT_DIR$/.idea/modules/sugaradapter/sugaradapter-annotation/TopList-sugaradapter-annotation.iml" group="TopList/sugaradapter-annotation" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/theme/TopList-theme.iml" filepath="$PROJECT_DIR$/.idea/modules/theme/TopList-theme.iml" group="TopList/theme" />
       <module fileurl="file://$PROJECT_DIR$/annotation/annotation.iml" filepath="$PROJECT_DIR$/annotation/annotation.iml" group="TopList/annotation" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" group="TopList/app" />
       <module fileurl="file://$PROJECT_DIR$/compiler/compiler.iml" filepath="$PROJECT_DIR$/compiler/compiler.iml" group="TopList/compiler" />

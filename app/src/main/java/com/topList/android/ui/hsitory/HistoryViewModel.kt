@@ -31,7 +31,4 @@ class HistoryViewModelFactory(
     override fun <T : ViewModel?> create(modelClass: Class<T>): T {
         return HistoryViewModel(loadHistoryUseCase) as T
     }
-
-
-
 }
