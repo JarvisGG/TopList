@@ -29,4 +29,6 @@ class FeedRepository (
 
     }
 
+    suspend fun collect(id: String) = remoteDataSource.collect(id)
+
 }

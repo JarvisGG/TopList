@@ -17,4 +17,15 @@ class SubscribeUseCase (
             }
         }
     }
+
+    suspend fun subscribe(id: String): NetResult<State<Any>> {
+        return when(val result = subscribeRepository.subscribe(id)) {
+            is NetResult.Success -> {
+                NetResult.Success(result.data)
+            }
+            is NetResult.Error -> {
+                result
+            }
+        }
+    }
 }

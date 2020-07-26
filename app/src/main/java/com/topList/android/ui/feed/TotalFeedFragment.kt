@@ -3,6 +3,7 @@ package com.topList.android.ui.feed
 import android.graphics.Color
 import android.os.Bundle
 import android.view.*
+import android.widget.Toast
 import android.widget.Toolbar
 import androidx.activity.OnBackPressedCallback
 import androidx.fragment.app.viewModels
@@ -16,6 +17,7 @@ import com.topList.android.api.NetResult
 import com.topList.android.api.model.State
 import com.topList.android.base.ui.BasePagingFragment
 import com.topList.android.ui.LOADING
+import com.topList.android.ui.collect.CollectRecorder
 import com.topList.android.ui.detail.DetailFragment
 import com.topList.android.ui.feed.domain.FeedRemoteDataSource
 import com.topList.android.ui.feed.domain.FeedRepository
@@ -26,6 +28,7 @@ import com.topList.android.ui.widget.NormalViewScrollJudge
 import com.zhihu.android.sugaradapter.SugarAdapter
 import com.topList.android.ui.hsitory.HistoryRecorder
 import com.topList.theme.base.widget.TToolbar
+import kotlinx.android.synthetic.main.feed_item.view.*
 import kotlinx.android.synthetic.main.fragment_total_feed.inboxDetailPage
 import kotlinx.android.synthetic.main.fragment_total_feed.inboxRecyclerview
 import kotlinx.android.synthetic.main.fragment_total_feed.inboxSwipe
@@ -82,6 +85,12 @@ class TotalFeedFragment : BasePagingFragment(), IContainerPager {
                 detailFragment?.populate(holder.data.url, true)
                 inboxRecyclerview.expandItem(holder.itemId)
                 displayBottomNavigationBar(false)
+                HistoryRecorder.record(holder.data, lifecycleScope, requireContext())
+            }
+            holder.containerView.feedCollect.setOnClickListener {
+                holder.containerView.feedCollect.setImageResource(R.drawable.ic_collected)
+                Toast.makeText(requireActivity(), "收藏成功", Toast.LENGTH_SHORT).show()
+                vm.collect(holder.data.id).observe(viewLifecycleOwner, Observer { })
                 HistoryRecorder.record(holder.data, lifecycleScope, requireContext())
             }
         }

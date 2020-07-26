@@ -33,4 +33,19 @@ class SubscribeRemoteDataSource(
         }
         return onError.invoke()
     }
+
+    suspend fun subscribe(id: String) : NetResult<State<Any>> {
+        return try {
+            val response = service.subscribe(id)
+            if (response.isSuccessful) {
+                val body = response.body()
+                if (body != null) {
+                    return NetResult.Success(body)
+                }
+            }
+            NetResult.Error(IOException("Error get subscribe data"))
+        } catch (e: Exception) {
+            NetResult.Error(IOException("Error get subscribe data", e))
+        }
+    }
 }

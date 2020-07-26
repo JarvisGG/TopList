@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.GridLayoutManager
@@ -27,6 +28,7 @@ import com.topList.android.ui.subscribe.model.StationUseItem
 import com.topList.android.ui.widget.CustomItemDecoration
 import com.zhihu.android.sugaradapter.SugarAdapter
 import kotlinx.android.synthetic.main.fragment_subscribe.*
+import kotlinx.android.synthetic.main.station_item.view.*
 import kotlinx.android.synthetic.main.view_toolbar.*
 
 /**
@@ -62,7 +64,13 @@ class SubscribeFragment : BaseFragment() {
     private val stationAdapter by lazy {
         SugarAdapter.Builder.with(stationList)
             .add(StationHeaderHolder::class.java)
-            .add(StationHolder::class.java)
+            .add(StationHolder::class.java) { holder ->
+                holder.containerView.tv_follow.setOnClickListener {
+                    vm.subscribe(holder.data.id).observe(viewLifecycleOwner, Observer { })
+                    Toast.makeText(requireActivity(), "关注成功", Toast.LENGTH_SHORT).show()
+                    holder.containerView.tv_follow.text = "已关注"
+                }
+            }
             .build()
     }
 

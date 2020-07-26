@@ -1,6 +1,8 @@
 package com.topList.android.ui.subscribe
 
 import androidx.lifecycle.*
+import com.topList.android.api.NetResult
+import com.topList.android.api.model.State
 import com.topList.android.base.BaseViewModel
 import com.topList.android.ui.subscribe.domain.SubscribeUseCase
 import com.topList.android.ui.subscribe.model.SubscribeUseItem
@@ -15,6 +17,10 @@ class SubscribeViewModel(
         }.map {
             SubscribeHelper.getCategoryData(it)
         }
+    }
+
+    fun subscribe(id: String) = liveData {
+        emit(subscribeUserCase.subscribe(id))
     }
 }
 

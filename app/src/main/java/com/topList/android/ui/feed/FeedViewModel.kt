@@ -31,6 +31,10 @@ class FeedViewModel(
     fun load(params: LoadFeedParams) {
         _feedParams.value = params
     }
+
+    fun collect(id: String) = liveData {
+        emit(loadFeedUseCase.collect(id))
+    }
 }
 
 class FeedViewModelFactory(

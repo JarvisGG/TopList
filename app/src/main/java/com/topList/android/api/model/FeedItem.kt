@@ -22,4 +22,6 @@ data class FeedItem(
     @SerialName("tid") val tid: String,
     @SerialName("type") val type: String,
     @SerialName("sort") val sort: String
-) : Parcelable
+) : Parcelable {
+    var isCollected = false
+}

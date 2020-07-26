@@ -37,4 +37,10 @@ interface FeedService {
         @Query("is_follow") isFollow: String // 是否只获取订阅最新1是0否
     ): Response<State<List<FeedItem>>>
 
+
+    @GET("collectArticle")
+    suspend fun collect(
+        @Query("id") id: String
+    ): Response<State<Any>>
+
 }

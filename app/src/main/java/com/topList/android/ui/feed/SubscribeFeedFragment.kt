@@ -169,11 +169,11 @@ class SubscribeFeedFragment : BasePagingFragment(), IContainerPager {
     }
 
     override fun onRefresh() {
-        vm.load(LoadFeedParams(paging.index, false))
+        vm.load(LoadFeedParams(paging.index, true))
     }
 
     override fun onLoadMore() {
-        vm.load(LoadFeedParams(paging.index, false))
+        vm.load(LoadFeedParams(paging.index, true))
     }
 
 

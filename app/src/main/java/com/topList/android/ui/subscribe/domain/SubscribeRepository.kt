@@ -11,6 +11,8 @@ class SubscribeRepository(
         dataSource.loadSubscribeItems()
     }
 
+    suspend fun subscribe(id: String) = dataSource.subscribe(id)
+
     private suspend fun getData(
         request: suspend () -> NetResult<State<List<SubscribeItem>>>
     ): NetResult<State<List<SubscribeItem>>> {

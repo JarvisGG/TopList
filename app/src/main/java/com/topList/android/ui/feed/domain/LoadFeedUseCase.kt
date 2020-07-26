@@ -26,4 +26,15 @@ class LoadFeedUseCase (
             }
         }
     }
+
+    suspend fun collect(id: String): NetResult<State<Any>> {
+        return when(val result = feedRepository.collect(id)) {
+            is NetResult.Success -> {
+                NetResult.Success(result.data)
+            }
+            is NetResult.Error -> {
+                result
+            }
+        }
+    }
 }
